@@ -4,7 +4,7 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1;
   background: #fdfdfd;
-  color: #000000;
+  color: black;
 }
 
 header {
@@ -15,11 +15,11 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 header p {
-  font-size: 1.2em;
+  font-size: 1em;
   color: #666;
 }
 
