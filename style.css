@@ -8,21 +8,13 @@ body {
   line-height: 1.5;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-bottom: 60px; /* 👈 Aggiungi questa riga */
-}
-
+/* Linee a tutta larghezza */
 .row-wrapper {
   border-top: 1px solid #aaa;
   width: 100%;
 }
 
+/* Contenuto centrato */
 .row {
   display: flex;
   justify-content: space-between;
@@ -30,6 +22,10 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
+}
+
+.container {
+  padding-bottom: 60px;
 }
 
 .category {
@@ -56,6 +52,7 @@ body {
   white-space: nowrap;
 }
 
+/* FOOTER */
 .footer {
   position: fixed;
   bottom: 0;
@@ -71,20 +68,18 @@ body {
 }
 
 .footer-content {
-  display: flex;
-  gap: 20px;
   max-width: 1000px;
   width: 100%;
+  display: flex;
   justify-content: space-between;
   padding: 0 20px;
 }
 
-.footer-label {
+.footer .category {
   font-weight: bold;
-  text-transform: uppercase;
 }
 
-.footer-mail {
+.footer-email {
   font-weight: normal;
-  white-space: nowrap;
+  text-transform: none;
 }
