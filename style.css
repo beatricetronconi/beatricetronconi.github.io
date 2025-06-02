@@ -8,16 +8,37 @@ body {
   line-height: 3;
 }
 
-.row-wrapper {
-  border-top: 1px solid #aaa;
+/* Header fisso */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  background: white;
+  border-bottom: 1px solid #aaa;
+  z-index: 1000;
 }
 
+.fixed-header .row {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Contenitore principale */
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 100px; /* spazio per header fisso */
-  padding-bottom: 60px; /* spazio per footer fisso */
+  padding-top: 100px;   /* spazio per header fisso */
+  padding-bottom: 60px; /* spazio per footer */
+}
+
+/* Riga + linea */
+.row-wrapper {
+  border-top: 1px solid #aaa;
+  width: 100%;
 }
 
 .row {
@@ -51,39 +72,13 @@ body {
   white-space: nowrap;
 }
 
-/* HEADER FISSO */
-.fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-bottom: 1px solid #aaa;
-  z-index: 1000;
-}
-
-.fixed-header .row {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* FOOTER FISSO */
+/* Footer normale (non fisso) */
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
   border-top: 1px solid #aaa;
-  z-index: 1000;
-}
-
-.footer .row {
-  max-width: 1000px;
-  margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .footer .category {
