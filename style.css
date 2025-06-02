@@ -18,14 +18,18 @@ body {
   padding-bottom: 60px; /* 👈 Aggiungi questa riga */
 }
 
+.row-wrapper {
+  border-top: 1px solid #aaa;
+  width: 100%;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
   padding: 30px 20px;
-  border-top: 1px solid #aaa;
   max-width: 1000px;
   margin: 0 auto;
-  width: 100%; /* 👈 Fa estendere il bordo a tutta la larghezza */
+  width: 100%;
 }
 
 .category {
