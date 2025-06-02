@@ -23,7 +23,9 @@ body {
   justify-content: space-between;
   padding: 30px 20px;
   border-top: 1px solid #aaa;
-  width: 100%
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%; /* 👈 Fa estendere il bordo a tutta la larghezza */
 }
 
 .category {
