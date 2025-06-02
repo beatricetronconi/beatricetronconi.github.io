@@ -8,13 +8,14 @@ body {
   line-height: 3;
 }
 
-/* Header fisso */
+/* HEADER FISSO */
 .fixed-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background: white;
+  border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
   z-index: 1000;
 }
@@ -27,25 +28,27 @@ body {
   justify-content: space-between;
 }
 
-/* Contenitore principale */
+/* CONTENITORE PRINCIPALE */
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 100px;   /* spazio per header fisso */
-  padding-bottom: 60px; /* spazio per footer */
+  padding-top: 120px; /* spazio per header fisso */
+  padding-bottom: 60px; /* spazio per il footer */
 }
 
-/* Riga + linea */
+/* BORDO A SCHERMO INTERO */
 .row-wrapper {
-  border-top: 1px solid #aaa;
   width: 100%;
+  border-top: 1px solid #aaa;
 }
 
+/* RIGA CONTENUTO */
 .row {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
-  padding: 30px 20px;
-  width: 100%;
 }
 
 .category {
@@ -72,13 +75,14 @@ body {
   white-space: nowrap;
 }
 
-/* Footer normale (non fisso) */
+/* FOOTER dentro container */
 .footer {
   border-top: 1px solid #aaa;
-  padding: 10px 20px;
+  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .footer .category {
