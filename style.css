@@ -47,3 +47,16 @@ body {
   flex: 1;
   white-space: nowrap;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid #aaa;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  z-index: 1000;
+}
