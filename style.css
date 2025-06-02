@@ -4,6 +4,8 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: white;
   color: black;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .container {
@@ -11,30 +13,34 @@ body {
   flex-direction: column;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px 20px;
   border-top: 1px solid #aaa;
 }
 
 .category {
   flex: 1;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .details {
   flex: 3;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .project {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .project span {
