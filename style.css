@@ -8,15 +8,13 @@ body {
   line-height: 3;
 }
 
-/* HEADER FISSO */
 .fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: white;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
+  background: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -28,27 +26,23 @@ body {
   justify-content: space-between;
 }
 
-/* CONTENITORE PRINCIPALE */
 .container {
   max-width: 1000px;
-  margin: 0 auto;
-  padding-top: 120px; /* spazio per header fisso */
-  padding-bottom: 60px; /* spazio per il footer */
+  margin: 140px auto 0 auto; /* spazio per header */
+  padding-bottom: 60px;
 }
 
-/* BORDO A SCHERMO INTERO */
 .row-wrapper {
   width: 100%;
   border-top: 1px solid #aaa;
 }
 
-/* RIGA CONTENUTO */
 .row {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
+  padding: 30px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .category {
@@ -75,14 +69,20 @@ body {
   white-space: nowrap;
 }
 
-/* FOOTER dentro container */
-.footer {
+/* Footer */
+.footer-wrapper {
+  width: 100%;
   border-top: 1px solid #aaa;
+  background-color: white;
+}
+
+.footer {
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 30px 20px;
   display: flex;
   justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
+  align-items: center;
 }
 
 .footer .category {
