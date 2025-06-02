@@ -16,7 +16,8 @@ body {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding-bottom: 60px;
+  padding-top: 100px; /* spazio per header fisso */
+  padding-bottom: 60px; /* spazio per footer fisso */
 }
 
 .row {
@@ -50,27 +51,39 @@ body {
   white-space: nowrap;
 }
 
-/* Footer */
+/* HEADER FISSO */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #aaa;
+  z-index: 1000;
+}
+
+.fixed-header .row {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* FOOTER FISSO */
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
   background-color: white;
   border-top: 1px solid #aaa;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.footer-content {
+.footer .row {
   max-width: 1000px;
-  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
 }
 
 .footer .category {
