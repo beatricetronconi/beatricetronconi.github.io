@@ -1,87 +1,91 @@
-<head>
-  <meta charset="UTF-8">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: white;
+  color: black;
+  font-size: 16px;
+  line-height: 3;
+}
 
-<!-- HEADER FISSO -->
-<div class="fixed-header">
-  <div class="row">
-    <div class="category">PORTFOLIO</div>
-    <div class="details">
-      <div class="project">
-        <span>BEATRICE TRONCONI</span>
-        <span>2025</span>
-      </div>
-    </div>
-  </div>
-</div>
+/* Header fisso */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #aaa;
+  z-index: 1000;
+}
 
-<!-- CONTENUTO -->
-<div class="container">
+.fixed-header .row {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  <!-- EDITORIAL -->
-  <div class="row-wrapper">
-    <div class="row">
-      <div class="category">EDITORIAL</div>
-      <div class="details">
-        <div class="project">
-          <span>SETTIMANA ENIGMISTICA - ASCII ART</span>
-          <span>2024</span>
-        </div>
-        <div class="project">
-          <span>ANITA KLINZ</span>
-          <span>2020</span>
-        </div>
-      </div>
-    </div>
-  </div>
+/* Contenitore principale */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 100px;   /* spazio per header fisso */
+  padding-bottom: 60px; /* spazio per footer */
+}
 
-  <!-- BRANDING -->
-  <div class="row-wrapper">
-    <div class="row">
-      <div class="category">BRANDING</div>
-      <div class="details">
-        <div class="project">
-          <span>SLURP</span>
-          <span>2021</span>
-        </div>
-        <div class="project">
-          <span>TRULLI ALBEROBELLO</span>
-          <span>2022</span>
-        </div>
-        <div class="project">
-          <span>EXHOIL</span>
-          <span>2023</span>
-        </div>
-      </div>
-    </div>
-  </div>
+/* Riga + linea */
+.row-wrapper {
+  border-top: 1px solid #aaa;
+  width: 100%;
+}
 
-  <!-- PHOTOGRAPHY -->
-  <div class="row-wrapper">
-    <div class="row">
-      <div class="category">PHOTOGRAPHY</div>
-      <div class="details">
-        <div class="project">
-          <span>ANALOGUE</span>
-          <span>2021–2025</span>
-        </div>
-      </div>
-    </div>
-  </div>
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+  width: 100%;
+}
 
-</div>
+.category {
+  flex: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-<!-- FOOTER -->
-<div class="footer">
-  <div class="row">
-    <div class="category">CONTACTS</div>
-    <div class="details">
-      <div class="project">
-        <span class="footer-email">BEATRICETRONCONI4@GMAIL.COM</span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-</div>
+.details {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.project span {
+  flex: 1;
+  white-space: nowrap;
+}
+
+/* Footer normale (non fisso) */
+.footer {
+  border-top: 1px solid #aaa;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .category {
+  font-weight: bold;
+}
+
+.footer-email {
+  font-weight: normal;
+  text-transform: none;
+}
