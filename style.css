@@ -61,7 +61,7 @@ body {
 }
 /* la classe header-row eredita .inner per avere max-width e padding */
 .header-row {
-  /* height: 80px;   se vuoi fissare un’altezza fissa */
+  height: 80px;   
 }
 /* il testo dentro l’header */
 .category {
@@ -108,7 +108,7 @@ body {
 .footer-row {
   /* eredita .inner (max-width, padding) */
   padding-top: 20px;  /* se vuoi un po’ di spazio sopra il footer */
-  padding-bottom: 40px; /* se vuoi più margine sotto */
+  padding-bottom: 20px; /* se vuoi più margine sotto */
 }
 .footer-email {
   font-size: 16px;
