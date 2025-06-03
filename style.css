@@ -88,7 +88,7 @@ body {
    e impedisce che venga nascosto sotto l’header. */
 .spacer {
   /* Altezza pari alla somma di padding-top + padding-bottom di .header-row. */
-  height: 20px + 10px; /* attenzione: questo è un commento dimostrativo! */
+  height: 10px + 10px; /* attenzione: questo è un commento dimostrativo! */
   /* Nel codice CSS vero, devi mettere:
      height: (10px + 10px) = 20px se header-row ha padding:10px 20px.
      Se imposti un’altezza fissa di 40px in header-row, allora qui metterai height:40px. */
