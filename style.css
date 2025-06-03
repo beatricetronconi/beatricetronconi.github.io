@@ -1,130 +1,137 @@
-/* RESET E BASE */
+/* ================ RESET E BASE ================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: white;
-  color: black;
+  background: #fff;
+  color: #000;
   font-size: 16px;
-  line-height: 3;
+  line-height: 1.5;
 }
 
-/* Wrapper a tutta larghezza per le linee orizzontali */
+/* ================ CONTENITORE INTERNO “CENTERED” ================ */
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  /* 20px di padding orizzontale per far respirare il testo ai lati */
+  padding: 20px;
+}
+
+/* Ogni riga ha tre colonne: left / center / right */
+.col {
+  display: flex;
+  align-items: center;
+}
+
+.col-left {
+  flex: 1;                /* occupa 1 frazione di spazio */
+  justify-content: flex-start;
+}
+
+.col-center {
+  flex: 2;                /* occupa 2 frazioni di spazio */
+  justify-content: center;
+}
+
+.col-right {
+  flex: 1;                /* occupa 1 frazione di spazio */
+  justify-content: flex-end;
+}
+
+/* ================ LINEA A TUTTA LARGHEZZA ================ */
 .full-width-line-wrapper {
   position: relative;
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
-  margin: 0; /* nessun margine verticale extra */
 }
+
 .full-width-line {
   width: 100%;
   border-top: 1px solid #aaa;
 }
 
-/* ------------------ HEADER ------------------ */
+/* ================ HEADER ================ */
 .site-header {
-  position: sticky;    /* oppure “relative” se non vuoi che rimanga fissa */
+  position: sticky; /* Se vuoi che sia fisso: sticky; altrimenti usa relative o static */
   top: 0;
-  background: white;
-  z-index: 1000;
+  background: #fff;
+  z-index: 10;
 }
-.site-header .inner {
-  max-width: 1000px;
-  margin: 0 auto;      /* centra orizzontalmente */
-  padding: 30px 20px;  /* 30px sopra/sotto, 20px dx/sx */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+/* Ridotto del 50% rispetto a prima: da 20px/20px a 10px/20px */
+.header-row {
+  /* eredita .inner (max-width, margin auto, padding orizzontale 20px) */
+  padding: 10px 20px;  /* 10px in alto/10px in basso, 20px a destra/sinistra */
 }
-.site-header .category {
-  flex: 1;
+
+.category {
   font-weight: bold;
   text-transform: uppercase;
 }
-.site-header .details {
-  flex: 3;
-  display: flex;
-  justify-content: flex-end;
-}
-.site-header .project {
-  display: flex;
-  gap: 12px;
-}
-.proj-name,
-.proj-year {
+
+.proj-name {
   font-weight: bold;
+  font-size: 18px;
+}
+
+.proj-year {
+  font-weight: normal;
   font-size: 16px;
 }
 
-/* Spazio sotto l’header sticky (altrimenti il primo contenuto “scivola” sotto) */
+/* ================ SPAZIO SOTTO HEADER ================ */
 .spacer {
-  height: 80px; /* regola l’altezza in base all’altezza effettiva di .site-header */
+  /* Prima era 80px, ora è dimezzato a 40px per allinearsi all’header ridotto */
+  height: 40px;
 }
 
-/* ------------------ CONTENUTO PRINCIPALE ------------------ */
-.container {
-  /* Non serve max-width qui: le righe vere e proprie sono dentro “.inner” */
-  margin: 0;
-  padding: 0;
-}
-.row {
-  display: flex;
-  justify-content: space-between;
+/* ================ CONTENUTO PRINCIPALE ================ */
+/* Ogni content-row eredita .inner per max-width e padding orizzontale */
+.content-row {
   align-items: flex-start;
-  /* ORA la spaziatura verticale viene gestita da padding dentro .inner */
-}
-.inner.row {
-  max-width: 1000px;
-  margin: 0 auto;      /* centra */
-  padding: 30px 20px;  /* 30px sopra/sotto, 20px dx/sx */
-}
-.category {
-  flex: 1;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.details {
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.project {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-.project span {
-  flex: 1;
-  white-space: nowrap;
 }
 
-/* ------------------ FOOTER ------------------ */
+/* Dentro .content-row:
+   - col-left contiene la categoria (es. EDITORIAL, BRANDING, ecc.)
+   - col-center contiene i titoli dei progetti (uno sotto l’altro)
+   - col-right contiene gli anni (uno sotto l’altro)
+*/
+.project {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.proj-year {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* ================ FOOTER ================ */
+/* linea a tutta larghezza subito sopra il footer */
+.full-width-line-wrapper.footer-divider {
+  /* puoi usare la stessa classe .full-width-line-wrapper, 
+     ma se vuoi aggiungere margini verticali diversi, 
+     definisci una variante .footer-divider */
+}
+
 .site-footer {
-  background: white;
+  background: #fff;
 }
-.site-footer .inner.row {
-  /* stessa struttura del main: max-width 1000px + padding 30px/20px */
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+/* Ridotto del 50% rispetto a prima: da 20px/20px a 10px/20px */
+.footer-row {
+  /* eredita .inner per max-width, margin auto, padding orizzontale 20px */
+  padding: 10px 20px;  /* 10px sopra/10px sotto, 20px dx/sx */
 }
-.site-footer .category {
-  flex: 1;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.site-footer .details {
-  flex: 3;
-}
+
 .footer-email {
+  font-size: 16px;
   font-weight: normal;
   text-transform: none;
 }
