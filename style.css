@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: #fff;
@@ -12,31 +13,32 @@ body {
   line-height: 1.5;
 }
 
-/* ================= Contenitore Interno "centrato" ================= */
+/* ================= CONTENITORE INTERNO “CENTERED” ================= */
+/* Questo <div class="inner"> centra il contenuto e applica max-width + padding laterale */
 .inner {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  /* 20px di padding laterale per far respirare il testo (a destra e a sinistra) */
+  /* 20px di padding orizzontale per far respirare il testo ai lati */
   padding: 20px;
 }
 
-/* Ogni riga vera e propria avrà tre colonne: left - center - right */
+/* Ogni riga avrà sempre 3 colonne: left / center / right */
 .col {
   display: flex;
   align-items: center;
 }
-/* impostiamo proporzioni fisse (flex-basis) per tenere le colonne allineate */
+/* impostiamo proporzioni fisse (flex-basis) per tenere le colonne sempre allineate */
 .col-left {
-  flex: 1;       /* occupa 1 frazione di spazio */
+  flex: 1;               /* 1 frazione di spazio */
   justify-content: flex-start;
 }
 .col-center {
-  flex: 2;       /* occupa 2 frazioni di spazio */
+  flex: 2;               /* 2 frazioni di spazio */
   justify-content: center;
 }
 .col-right {
-  flex: 1;       /* occupa 1 frazione di spazio */
+  flex: 1;               /* 1 frazione di spazio */
   justify-content: flex-end;
 }
 
@@ -54,16 +56,20 @@ body {
 
 /* ================= HEADER ================= */
 .site-header {
-  position: sticky; /* rimane in cima se scrolli, altrimenti usa "relative" */
+  position: sticky; /* rimane in cima se scrolli; altrimenti sostituisci con relative/static */
   top: 0;
   background: #fff;
   z-index: 10;
 }
-/* la classe header-row eredita .inner per avere max-width e padding */
+
+/* La .header-row eredita .inner, ma sovrascriviamo il padding verticale:
+   da 20px/20px (default .inner) a 10px/20px (ridotto del 50% verticalmente). */
 .header-row {
-  height: 80px;   
+  padding: 10px 20px;  /* 10px sopra e 10px sotto, 20px ai lati */
 }
-/* il testo dentro l’header */
+/* Se preferisci fissare un’altezza esatta, puoi usare height: 40px; ma il padding è più flessibile. */
+
+/* ===== Stile del testo nell’header ===== */
 .category {
   font-weight: bold;
   text-transform: uppercase;
@@ -78,24 +84,32 @@ body {
 }
 
 /* ================= SPAZIO SOTTO HEADER ================= */
+/* Serve solo se l’header è sticky: questo DIV “spinge” il resto del contenuto
+   e impedisce che venga nascosto sotto l’header. */
 .spacer {
-  /* Se l’header è "sticky", qui metti l’altezza esatta dell’header
-     per non far “scomparire” i contenuti sotto di esso. 
-     Es. se header-row ha 60px totali, qui metti 60px. */
-  height: 80px;
+  /* Altezza pari alla somma di padding-top + padding-bottom di .header-row. */
+  height: 20px + 10px; /* attenzione: questo è un commento dimostrativo! */
+  /* Nel codice CSS vero, devi mettere:
+     height: (10px + 10px) = 20px se header-row ha padding:10px 20px.
+     Se imposti un’altezza fissa di 40px in header-row, allora qui metterai height:40px. */
+  /* Nel nostro caso, header-row ha solo padding (10px sopra + 10px sotto) = 20px totali,
+     quindi: */
+  height: 20px;
 }
 
 /* ================= CONTENUTO PRINCIPALE ================= */
-/* Ogni content-row utilizza la struttura .inner + tre colonne col-left, col-center, col-right */
+/* Ogni riga di contenuto eredita .inner per max-width e padding orizzontale */
 .content-row {
-  align-items: flex-start; 
+  align-items: flex-start;
 }
-/* In col-center ogni .project (titolo del progetto) ha margine-bottom */
+
+/* Nel .col-center, ogni progetto ha un piccolo margin-bottom */
 .project {
   margin-bottom: 10px;
   font-size: 16px;
 }
-/* In col-right le date, una per riga */
+
+/* Nel .col-right, ogni .proj-year scende di 10px per avere spaziatura tra gli anni */
 .proj-year {
   margin-bottom: 10px;
   font-size: 16px;
@@ -105,11 +119,13 @@ body {
 .site-footer {
   background: #fff;
 }
+
+/* Come per l’header, riduciamo il padding verticale: da 20px/20px a 10px/20px */
 .footer-row {
-  /* eredita .inner (max-width, padding) */
-  padding-top: 20px;  /* se vuoi un po’ di spazio sopra il footer */
-  padding-bottom: 20px; /* se vuoi più margine sotto */
+  padding: 10px 20px;  /* 10px sopra, 10px sotto, 20px ai lati */
 }
+
+/* Testo nel footer */
 .footer-email {
   font-size: 16px;
   font-weight: normal;
