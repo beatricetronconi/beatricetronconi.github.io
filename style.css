@@ -8,9 +8,21 @@ body {
   line-height: 3;
 }
 
+/* Wrapper per forzare la linea full-width su tutto lo schermo */
+.full-width-line-wrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Se vuoi un margine verticale sopra/sotto, commenta o scommenta le righe seguenti: */
+  margin: 0; /* rimuove margini interni */
+}
+
+/* Linea orizzontale effettiva */
 .full-width-line {
   width: 100%;
   border-top: 1px solid #aaa;
+  /* Altezza fissa a 1px, già data da border-top */
 }
 
 .container {
