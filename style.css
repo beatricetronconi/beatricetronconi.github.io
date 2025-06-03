@@ -35,11 +35,11 @@ body {
 }
 .col-center {
   flex: 2;               /* 2 frazioni di spazio */
-  justify-content: center;
+  justify-content: flex-start;
 }
 .col-right {
   flex: 1;               /* 1 frazione di spazio */
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 /* ================= LINEA A TUTTA LARGHEZZA ================= */
