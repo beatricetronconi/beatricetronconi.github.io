@@ -1,3 +1,4 @@
+/* RESET E BASE */
 body {
   margin: 0;
   padding: 0;
@@ -8,32 +9,72 @@ body {
   line-height: 3;
 }
 
-/* Wrapper per forzare la linea full-width su tutto lo schermo */
+/* Wrapper a tutta larghezza per le linee orizzontali */
 .full-width-line-wrapper {
   position: relative;
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
-  /* Se vuoi un margine verticale sopra/sotto, commenta o scommenta le righe seguenti: */
-  margin: 0; /* rimuove margini interni */
+  margin: 0; /* nessun margine interno */
 }
 
-/* Linea orizzontale effettiva */
 .full-width-line {
   width: 100%;
   border-top: 1px solid #aaa;
-  /* Altezza fissa a 1px, già data da border-top */
 }
 
+/* ------------------ HEADER ------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+}
+
+.site-header .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.site-header .category {
+  flex: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.site-header .details {
+  flex: 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.site-header .project {
+  display: flex;
+  gap: 12px;
+}
+
+.proj-name,
+.proj-year {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* ------------------ CONTENUTO PRINCIPALE ------------------ */
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding-bottom: 60px;
+  padding-top: 20px;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   padding: 30px 20px;
 }
 
@@ -61,42 +102,28 @@ body {
   white-space: nowrap;
 }
 
-/* Header fisso */
-.fixed-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  z-index: 1000;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-}
-
-.fixed-header .row {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Footer */
-.footer {
-  width: 100%;
-  border-top: 1px solid #aaa;
+/* ------------------ FOOTER ------------------ */
+.site-footer {
   background: white;
 }
 
-.footer .content {
+.site-footer .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1000px;
   margin: 0 auto;
   padding: 30px 20px;
-  display: flex;
-  justify-content: space-between;
 }
 
-.footer .category {
+.site-footer .category {
+  flex: 1;
   font-weight: bold;
+  text-transform: uppercase;
+}
+
+.site-footer .details {
+  flex: 3;
 }
 
 .footer-email {
