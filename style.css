@@ -19,7 +19,7 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  padding: 10px;   /* 10px sopra, 10px sotto, 10px dx, 10px sx */
+  padding: 0px;   /* 10px sopra, 10px sotto, 10px dx, 10px sx */
 }
 
 /* Ogni riga avrà 3 colonne: left / center / right */
@@ -63,7 +63,7 @@ body {
 
 /* Header con padding ridotto (5px sopra e sotto) */
 .header-row {
-  padding: 5px 10px;  /* 5px sopra/sotto, 10px dx/sx */
+  padding: 10px 10px;  /* 5px sopra/sotto, 10px dx/sx */
 }
 
 /* Testi nell’header */
@@ -72,11 +72,11 @@ body {
   text-transform: uppercase;
 }
 .proj-name {
-  font-weight: bold;
+  font-weight: bold ;
   font-size: 16px;
 }
 .proj-year {
-  font-weight: normal;
+  font-weight: bold;
   font-size: 16px;
 }
 
