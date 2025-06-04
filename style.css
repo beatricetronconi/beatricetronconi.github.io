@@ -14,13 +14,13 @@ body {
 }
 
 /* ================= CONTENITORE INTERNO “CENTERED” ================= */
-/* Questo <div class="inner"> centra il contenuto e applica max-width + padding laterale */
+/* Questo <div class="inner"> centra il contenuto e applica max-width + padding laterale ridotto */
+/* Ho ridotto il padding orizzontale e verticale a 10px, per spostare tutto più verso sinistra */
 .inner {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  /* 20px di padding orizzontale per far respirare il testo ai lati */
-  padding: 20px;
+  padding: 10px;  /* 10px sopra, 10px sotto, 10px a destra e sinistra */
 }
 
 /* Ogni riga avrà sempre 3 colonne: left / center / right */
@@ -28,7 +28,7 @@ body {
   display: flex;
   align-items: center;
 }
-/* impostiamo proporzioni fisse (flex-basis) per tenere le colonne sempre allineate */
+/* Impostiamo proporzioni fisse (flex-basis) per tenere le colonne sempre allineate */
 .col-left {
   flex: 1;               /* 1 frazione di spazio */
   justify-content: flex-start;
@@ -56,20 +56,18 @@ body {
 
 /* ================= HEADER ================= */
 .site-header {
-  position: sticky; /* rimane in cima se scrolli; altrimenti sostituisci con relative/static */
+  position: sticky;    /* rimane in cima se scrolli; altrimenti metti “relative” */
   top: 0;
   background: #fff;
   z-index: 10;
 }
 
-/* La .header-row eredita .inner, ma sovrascriviamo il padding verticale:
-   da 20px/20px (default .inner) a 10px/20px (ridotto del 50% verticalmente). */
+/* Sovrascriviamo il padding verticale di .inner per l’header:
+   da 10px/10px (default .inner) a 5px/10px (ancora più “piatto”) */
 .header-row {
-  padding: 10px 20px;  /* 10px sopra e 10px sotto, 20px ai lati */
+  padding: 5px 10px;   /* 5px sopra, 5px sotto, 10px dx/sx */
 }
-/* Se preferisci fissare un’altezza esatta, puoi usare height: 40px; ma il padding è più flessibile. */
-
-/* ===== Stile del testo nell’header ===== */
+/* Stile del testo nell’header */
 .category {
   font-weight: bold;
   text-transform: uppercase;
@@ -85,31 +83,32 @@ body {
 
 /* ================= SPAZIO SOTTO HEADER ================= */
 /* Serve solo se l’header è sticky: questo DIV “spinge” il resto del contenuto
-   e impedisce che venga nascosto sotto l’header. */
+   per non farlo scivolare sotto l’header. */
 .spacer {
   /* Altezza pari alla somma di padding-top + padding-bottom di .header-row. */
-  height: 10px + 10px; /* attenzione: questo è un commento dimostrativo! */
-  /* Nel codice CSS vero, devi mettere:
-     height: (10px + 10px) = 20px se header-row ha padding:10px 20px.
-     Se imposti un’altezza fissa di 40px in header-row, allora qui metterai height:40px. */
-  /* Nel nostro caso, header-row ha solo padding (10px sopra + 10px sotto) = 20px totali,
-     quindi: */
-  height: 20px;
+  /* .header-row ha 5px sopra + 5px sotto = 10px totali */
+  height: 10px;
 }
 
 /* ================= CONTENUTO PRINCIPALE ================= */
-/* Ogni riga di contenuto eredita .inner per max-width e padding orizzontale */
+/* Ogni content-row eredita .inner per max-width e padding orizzontale/verticale */
 .content-row {
-  align-items: flex-start;
+  align-items: center;  /* Allinea verticalmente i testi al centro della riga */
+}
+/* Sezione “About Me”: rimane alta esattamente come le altre righe, 
+   perché NON c’è padding verticale extra. */
+.about-text {
+  /* Se vuoi aggiungere testo nell’About Me, scrivi qui.
+     Al momento è vuoto, così la riga risulta alta come le altre. */
 }
 
-/* Nel .col-center, ogni progetto ha un piccolo margin-bottom */
+/* In col-center, ogni .project (titolo di progetto) ha un piccolo margin-bottom */
 .project {
   margin-bottom: 10px;
   font-size: 16px;
 }
 
-/* Nel .col-right, ogni .proj-year scende di 10px per avere spaziatura tra gli anni */
+/* In col-right, ogni .proj-year scende di 10px per avere spaziatura fra le date */
 .proj-year {
   margin-bottom: 10px;
   font-size: 16px;
@@ -117,15 +116,21 @@ body {
 
 /* ================= FOOTER ================= */
 .site-footer {
+  position: fixed;     /* Rende il footer fisso in basso */
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background: #fff;
+  z-index: 10;
 }
 
-/* Come per l’header, riduciamo il padding verticale: da 20px/20px a 10px/20px */
+/* Sovrascriviamo il padding verticale di .inner per il footer:
+   da 10px/10px (default .inner) a 5px/10px (meno alto, uguale all’header) */
 .footer-row {
-  padding: 10px 20px;  /* 10px sopra, 10px sotto, 20px ai lati */
+  padding: 5px 10px;   /* 5px sopra, 5px sotto, 10px dx/sx */
 }
 
-/* Testo nel footer */
+/* Stile della mail nel footer */
 .footer-email {
   font-size: 16px;
   font-weight: normal;
