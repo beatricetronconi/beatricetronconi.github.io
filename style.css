@@ -68,7 +68,7 @@ body {
 
 /* Testi nell’header */
 .category {
-  font-weight: bold;
+  font-weight: NORMAL;
   text-transform: uppercase;
 }
 .proj-name {
