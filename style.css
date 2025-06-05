@@ -42,7 +42,7 @@ body {
 }
 /* Applico 5px di padding sopra e sotto SOLO alla riga “ABOUT ME” */
 .about-row {
-  padding: 10px 0;
+  padding: 15px 0;
 }
 /* Poiché .about-row eredita già .inner (che ha padding:10px orizzontale),
    questa regola aggiunge 5px sopra e 5px sotto alla riga intera. */
