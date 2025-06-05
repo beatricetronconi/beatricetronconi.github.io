@@ -116,6 +116,27 @@ body {
 }
 
 /* ================= FOOTER FISSO ================= */
+.footer-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  background: #000;
+  color: #fff;
+}
+
+/* Cambia anche tutti i testi figli su hover */
+.footer-link:hover .category,
+.footer-link:hover .footer-email {
+  color: #fff;
+}
 .site-footer {
   position: fixed;     /* Footer sempre visibile in basso */
   bottom: 0;
