@@ -118,6 +118,7 @@ body {
   display: block;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
   transition: background 0.2s;
 }
 
