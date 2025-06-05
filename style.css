@@ -40,7 +40,12 @@ body {
   flex: 1;
   justify-content: flex-start;
 }
-
+/* Applico 5px di padding sopra e sotto SOLO alla riga “ABOUT ME” */
+.about-row {
+  padding: 5px 0;
+}
+/* Poiché .about-row eredita già .inner (che ha padding:10px orizzontale),
+   questa regola aggiunge 5px sopra e 5px sotto alla riga intera. */
 /* ================= LINEA A TUTTA LARGHEZZA ================= */
 .full-width-line-wrapper {
   position: relative;
