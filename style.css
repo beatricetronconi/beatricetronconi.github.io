@@ -63,7 +63,7 @@ body {
 
 /* Header con padding: 5px sopra/sotto e 10px dx/sx */
 .header-row {
-  padding: 5px 10px;
+  padding: 10px 10px;
 }
 
 /* Testi nell’header: “PORTFOLIO” – “BEATRICE TRONCONI” – “2025” */
@@ -123,7 +123,7 @@ body {
 
 /* Footer con padding: 5px sopra/sotto e 10px dx/sx (uguale all’header) */
 .footer-row {
-  padding: 5px 10px;
+  padding: 10px 10px;
 }
 
 /* Testo “CONTACTS” e email: stessi stili delle altre righe */
