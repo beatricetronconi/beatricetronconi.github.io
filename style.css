@@ -132,11 +132,6 @@ body {
   padding: 10px;
 }
 
-.row-link:hover,
-.row-link:focus {
-  background: #000;
-}
-
 .row-link:hover .inner span,
 .row-link:hover .inner div,
 .row-link:focus .inner span,
