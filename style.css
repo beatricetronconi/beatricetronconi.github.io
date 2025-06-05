@@ -114,6 +114,17 @@ body {
 .about-text {
   /* rimane vuoto */
 }
+.row-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.row-link:hover .inner {
+  background: #f3f3f3;
+  /* oppure background: #eee; se vuoi più contrasto */
+}
 
 /* ================= FOOTER FISSO ================= */
 .footer-link {
