@@ -115,11 +115,6 @@ body {
   /* rimane vuoto */
 }
 
-.row-link:hover
-.row-link:focus {
-  background: #000;
-  }
-
 .row-link {
   display: block;
   width: 100vw;
@@ -130,12 +125,14 @@ body {
   color: inherit;
   transition: background 0.2s;
 }
+.row-link:hover,
+.row-link:focus {
+  background: #000;
+}
 
-.row-link .inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  padding: 10px;
+.row-link:hover .full-width-line,
+.row-link:focus .full-width-line {
+  border-top: 1px solid #fff;
 }
 
 .row-link:hover .inner span,
@@ -145,6 +142,15 @@ body {
   color: #fff;
   transition: color 0.2s;
 }
+.row-link .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+}
+
+
+
 /* ================= FOOTER FISSO ================= */
 .footer-link {
   display: block;
