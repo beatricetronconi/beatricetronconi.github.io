@@ -116,15 +116,24 @@ body {
 }
 .row-link {
   display: block;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
   transition: background 0.2s;
 }
 
-/* Effetto hover: fondo nero e testo bianco solo sulla row */
-.row-link:hover .inner,
-.row-link:focus .inner {
+.row-link .inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px;
+}
+
+.row-link:hover,
+.row-link:focus {
   background: #000;
 }
 
@@ -135,7 +144,6 @@ body {
   color: #fff;
   transition: color 0.2s;
 }
-
 /* ================= FOOTER FISSO ================= */
 .footer-link {
   display: block;
