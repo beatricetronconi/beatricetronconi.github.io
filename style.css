@@ -122,9 +122,18 @@ body {
   transition: background 0.2s;
 }
 
-.row-link:hover .inner {
-  background: #f3f3f3;
-  /* oppure background: #eee; se vuoi più contrasto */
+/* Effetto hover: fondo nero e testo bianco solo sulla row */
+.row-link:hover .inner,
+.row-link:focus .inner {
+  background: #000;
+}
+
+.row-link:hover .inner span,
+.row-link:hover .inner div,
+.row-link:focus .inner span,
+.row-link:focus .inner div {
+  color: #fff;
+  transition: color 0.2s;
 }
 
 /* ================= FOOTER FISSO ================= */
