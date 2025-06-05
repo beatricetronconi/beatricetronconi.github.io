@@ -114,6 +114,12 @@ body {
 .about-text {
   /* rimane vuoto */
 }
+
+.row-link:hover
+.row-link:focus {
+  background: #000;
+  }
+
 .row-link {
   display: block;
   width: 100vw;
