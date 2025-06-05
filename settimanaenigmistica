@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SETTIMANA ENIGMISTICA – ASCII ART</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- puoi copiare il tuo header qui -->
+  </header>
+  <main style="max-width: 900px; margin: 60px auto 0; padding: 20px;">
+    <h1>SETTIMANA ENIGMISTICA – ASCII ART</h1>
+    <h2>2024 — Editorial</h2>
+    <p>Descrizione dettagliata del progetto, immagini, credits, ecc...</p>
+    <!-- puoi aggiungere immagini e testo -->
+  </main>
+  <footer class="site-footer">
+    <!-- copia il footer identico all’homepage -->
+  </footer>
+</body>
+</html>
