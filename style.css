@@ -219,3 +219,20 @@ main {
   /* Aggiungiamo un padding-bottom pari all’altezza del footer (5px + 5px + 1px bordo) */
   padding-bottom: 20px;
 }
+
+a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: normal;
+}
+/* ================= LINK UNDERLINED MA CHE RIMANE NERO ================ */
+a:visited,
+a:active,
+a:focus {
+  color: #000;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
