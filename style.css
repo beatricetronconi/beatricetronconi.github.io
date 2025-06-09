@@ -148,7 +148,25 @@ body {
   display: flex;
   padding: 10px;
 }
+/* Solo per about.html: righe con due colonne */
+.content-row .col-left {
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.content-row .col-content {
+  flex: 3;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
+/* Nascondi col-center e col-right se le hai lasciate (tranne nell'header) */
+.content-row .col-center, .content-row .col-right {
+  display: none;
+}
 
 
 /* ================= FOOTER FISSO ================= */
