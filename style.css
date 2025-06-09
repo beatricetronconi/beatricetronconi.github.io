@@ -217,7 +217,7 @@ body {
 /* ================= EVITIAMO CHE IL CONTENUTO SIA COPERTO DAL FOOTER ================ */
 main {
   /* Aggiungiamo un padding-bottom pari all’altezza del footer (5px + 5px + 1px bordo) */
-  padding-bottom: 60px;
+  padding-bottom: 50px;
 }
 
 a {
