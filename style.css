@@ -78,7 +78,7 @@ body {
 
 
 .site-header {
-  position: sticky;    /* Rimane in cima se scrolli */
+  position: fixed;    /* Rimane in cima se scrolli */
   top: 0;
   background: #fff;
   z-index: 10;
