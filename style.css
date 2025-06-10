@@ -148,13 +148,13 @@ body {
   display: flex;
   padding: 10px;
 }
-/* Solo per about.html: righe con due colonne */
-.content-row .col-left {
+/* Per tutte le pagine tranne index.html: righe con due colonne */
+body:not(.home) .content-row .col-left {
   flex: 1;
   justify-content: flex-start;
   align-items: flex-start;
 }
-.content-row .col-content {
+body:not(.home) .content-row .col-content {
   flex: 3;
   justify-content: flex-start;
   align-items: flex-start;
@@ -164,9 +164,11 @@ body {
 }
 
 /* Nascondi col-center e col-right se le hai lasciate (tranne nell'header) */
-.content-row .col-center, .content-row .col-right {
+body:not(.home) .content-row .col-center,
+body:not(.home) .content-row .col-right {
   display: none;
 }
+
 
 
 /* ================= FOOTER FISSO ================= */
