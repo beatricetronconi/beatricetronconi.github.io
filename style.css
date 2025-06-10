@@ -55,7 +55,7 @@ body {
 }
 .full-width-line {
   width: 100%;
-  border-top: 1px solid #000;
+  border-top: 0,8px solid #000;
 }
 
 /* ================= HEADER ================= */
@@ -227,7 +227,7 @@ body:not(.home) .content-row .col-right {
   width: 100%;
   background: #fff;
   z-index: 10;
-  border-top: 1px solid #aaa; /* Separa dal contenuto sovrastante */
+  border-top: 0,8px solid #000; /* Separa dal contenuto sovrastante */
 }
 
 /* Footer con padding: 5px sopra/sotto e 10px dx/sx (uguale all’header) */
