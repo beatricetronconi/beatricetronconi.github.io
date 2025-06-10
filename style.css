@@ -107,6 +107,7 @@ body {
 .site-footer .category {
   font-weight: bold;
 }
+
 /* ================= SPAZIO SOTTO HEADER ================= */
 /* Serve se l’header è sticky: impedisce che MAIN finisca sotto l’header */
 .spacer {
