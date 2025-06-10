@@ -11,6 +11,7 @@ body {
   color: #000;
   font-size: 16px;
   line-height: 1.5;
+  padding-top: 50px;
 }
 
 /* ================= CONTENITORE INTERNO “CENTERED” ================= */
@@ -78,8 +79,9 @@ body {
 
 
 .site-header {
-  position: sticky;    /* Rimane in cima se scrolli */
+  position: fixed;    /* Rimane in cima se scrolli */
   top: 0;
+  width: 100%;
   background: #fff;
   z-index: 10;
 }
