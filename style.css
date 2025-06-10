@@ -26,6 +26,7 @@ body {
 .col {
   display: flex;
   align-items: center; /* Verticalmente centrati in ogni colonna */
+  line-height: normal; 
 }
 /* Colonne con proporzioni fisse: 1 / 2 / 1 */
 .col-left {
