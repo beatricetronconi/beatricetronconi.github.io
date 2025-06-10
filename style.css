@@ -30,15 +30,15 @@ body {
 /* Colonne con proporzioni fisse: 1 / 2 / 1 */
 .col-left {
   flex: 1;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .col-center {
   flex: 2;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .col-right {
   flex: 1;
-  justify-content: flex-start;
+  justify-content: center;
 }
 /* Applico 5px di padding sopra e sotto SOLO alla riga “ABOUT ME” */
 .about-row {
