@@ -90,18 +90,23 @@ body {
 
 /* Testi nell’header: “PORTFOLIO” – “BEATRICE TRONCONI” – “2025” */
 .category {
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
 }
 .proj-name {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
 }
 .proj-year {
   font-weight: normal;
   font-size: 16px;
 }
-
+/* Header and footer categories remain bold */
+.site-header .category,
+.site-header .proj-name,
+.site-footer .category {
+  font-weight: bold;
+}
 /* ================= SPAZIO SOTTO HEADER ================= */
 /* Serve se l’header è sticky: impedisce che MAIN finisca sotto l’header */
 .spacer {
