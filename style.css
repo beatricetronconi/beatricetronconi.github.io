@@ -271,17 +271,7 @@ a:hover {
 }
 
 /* ================= GALLERY ================= */
-.gallery {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px 0;
-}
 
-.gallery img {
-  height: 200px;
-  flex-shrink: 0;
-}
 .gallery-horizontal {
   display: flex;
   gap: 18px;
