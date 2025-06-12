@@ -211,7 +211,7 @@ body:not(.home) .content-row .col-right {
 
 .gallery-horizontal img {
   flex: 0 0 320px;
-  height: 220px;
+  height: 300px;
   object-fit: cover;
   background: #ececec;
   scroll-snap-align: start;
