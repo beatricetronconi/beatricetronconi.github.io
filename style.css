@@ -200,6 +200,8 @@ body:not(.home) .content-row .col-right {
 }
 .gallery-horizontal {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 18px;
   overflow-x: auto;
   padding-bottom: 12px;
