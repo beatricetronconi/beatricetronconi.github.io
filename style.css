@@ -226,8 +226,8 @@ body:not(.home) .content-row .col-right {
 }
 
 .gallery-horizontal img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+  filter: invert(1) hue-rotate(180deg);
+  transition: filter 0.2s, box-shadow 0.2s;
 }
 
 /* Optional: scrollbar styling (modifica a piacere) */
