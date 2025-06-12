@@ -193,6 +193,9 @@ body:not(.home) .content-row .col-content {
   flex-direction: column;
   gap: 5px;
 }
+.col-content {
+  padding: 0;
+}
 
 /* Nascondi col-center e col-right se le hai lasciate (tranne nell'header) */
 body:not(.home) .content-row .col-center,
