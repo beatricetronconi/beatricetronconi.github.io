@@ -207,14 +207,15 @@ body:not(.home) .content-row .col-right {
   padding-bottom: 12px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .gallery-horizontal img {
   flex: 0 0 320px;
   height: 300px;
   object-fit: cover;
-  border-radius: 0px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
   background: #ececec;
   scroll-snap-align: start;
   transition: transform 0.2s;
@@ -234,19 +235,6 @@ body:not(.home) .content-row .col-right {
   border-radius: 6px;
 }
 
-/*.gallery-horizontal img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
-}*/
-
-/* Optional: scrollbar styling (modifica a piacere) */
-.gallery-horizontal::-webkit-scrollbar {
-  height: 8px;
-}
-.gallery-horizontal::-webkit-scrollbar-thumb {
-  background: #ddd;
-  border-radius: 6px;
-}
 
 
 /* ================= FOOTER FISSO ================= */
