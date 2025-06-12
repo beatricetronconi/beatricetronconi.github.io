@@ -208,7 +208,7 @@ body:not(.home) .content-row .col-right {
   gap: 18px;
   overflow-x: auto;
   padding-bottom: 12px;
-  padding-right: 18px;
+  padding-right: 10px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   width: 100%;
