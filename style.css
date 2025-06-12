@@ -200,11 +200,9 @@ body:not(.home) .content-row .col-center,
 body:not(.home) .content-row .col-right {
   display: none;
 }
+
 .gallery-horizontal {
   display: flex;
-
-  justify-content: flex-start;
-  align-items: flex-start;
   gap: 18px;
   overflow-x: auto;
   padding-bottom: 12px;
@@ -216,9 +214,25 @@ body:not(.home) .content-row .col-right {
   flex: 0 0 320px;
   height: 300px;
   object-fit: cover;
+  border-radius: 0px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
   background: #ececec;
   scroll-snap-align: start;
   transition: transform 0.2s;
+}
+
+.gallery-horizontal img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+}
+
+/* Optional: scrollbar styling (modifica a piacere) */
+.gallery-horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-horizontal::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 6px;
 }
 
 /*.gallery-horizontal img:hover {
