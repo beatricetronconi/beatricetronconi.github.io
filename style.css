@@ -309,3 +309,7 @@ a:hover {
   color: #000;
   text-decoration: underline;
 }
+
+body, .inner, .content-row, .col, .col-content, .col-left {
+  overflow-x: hidden;
+}
