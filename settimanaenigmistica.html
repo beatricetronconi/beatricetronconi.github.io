@@ -5,6 +5,18 @@
   <title>SETTIMANA ENIGMISTICA – ASCII ART</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <script>
+  // Scroll solo orizzontale con la rotella sulla gallery
+  const gallery = document.querySelector('.gallery-horizontal');
+  if(gallery){
+    gallery.addEventListener('wheel', function(e) {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        this.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+  }
+</script>
 <body>
   <!-- ====================== HEADER ====================== -->
   <a href="index.html" class="row-link">
