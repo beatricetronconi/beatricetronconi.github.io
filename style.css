@@ -115,7 +115,7 @@ body {
 /* Serve se l’header è sticky: impedisce che MAIN finisca sotto l’header */
 .spacer {
   /* .header-row ha 5px di padding-top + 5px di padding-bottom = 10px totali */
-  height: 10px;
+  height: 0px;
 }
 
 /* ================= CONTENUTO PRINCIPALE ================= */
@@ -208,6 +208,7 @@ body:not(.home) .content-row .col-right {
   gap: 18px;
   overflow-x: auto;
   padding-bottom: 12px;
+  padding-right: 18px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   width: 100%;
