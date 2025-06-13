@@ -157,16 +157,16 @@
 
       function openLightbox(idx) {
         currentIdx = idx;
-        lightboxImg.src = images[idx].src;
+        lightbox.src = images[idx].src;
         lightbox.style.display = 'flex';
       }
       function closeLightbox() {
         lightbox.style.display = 'none';
-        lightboxImg.src = '';
+        lightbox.src = '';
       }
       function showNext(n) {
         currentIdx = (currentIdx + n + images.length) % images.length;
-        lightboxImg.src = images[currentIdx].src;
+        lightbox.src = images[currentIdx].src;
       }
       images.forEach((img, idx) => {
         img.addEventListener('click', () => openLightbox(idx));
