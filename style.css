@@ -207,7 +207,7 @@ body:not(.home) .content-row .col-right {
   display: flex;
   gap: 18px;
   overflow-x: auto;
-  padding-bottom: 12px;
+  padding-bottom: 20px;
   padding-right: 0px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
@@ -239,6 +239,7 @@ body:not(.home) .content-row .col-right {
   background: #ddd;
   border-radius: 6px;
 }
+*/
 
 /* LIGHTBOX BASE 
 .lightbox {
