@@ -228,7 +228,7 @@ body:not(.home) .content-row .col-right {
 .gallery-horizontal img:hover {
   filter: invert(1) hue-rotate(180deg);
   transition: filter 0.2s;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 
 /* Optional: scrollbar styling (modifica a piacere) */
@@ -240,7 +240,7 @@ body:not(.home) .content-row .col-right {
   border-radius: 6px;
 }
 
-/* LIGHTBOX BASE */
+/* LIGHTBOX BASE 
 .lightbox {
   position: fixed;
   z-index: 999;
@@ -282,7 +282,7 @@ body:not(.home) .content-row .col-right {
 .arrow.right { right: 30px; transform: translateY(-50%); }
 .arrow:hover, .close:hover { background: rgba(255,255,255,0.12);}
 
-
+*/
 
 /* ================= FOOTER FISSO ================= */
 .footer-link {
