@@ -207,13 +207,14 @@ body:not(.home) .content-row .col-right {
   display: flex;
   gap: 18px;
   overflow-x: auto;
-  padding-bottom: 20px;
+  overflow-y: hidden;
+  padding-bottom: 12px;
   padding-right: 0px;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  margin-bottom: 12px;
 }
 
 .gallery-horizontal img {
