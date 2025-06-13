@@ -5,144 +5,8 @@
   <title>SETTIMANA ENIGMISTICA – ASCII ART</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <script>
-  // Scroll solo orizzontale con la rotella sulla gallery
-  const gallery = document.querySelector('.gallery-horizontal');
-  if(gallery){
-    gallery.addEventListener('wheel', function(e) {
-      if (e.deltaY !== 0) {
-        e.preventDefault();
-        this.scrollLeft += e.deltaY;
-      }
-    }, { passive: false });
-  }
-   
-const gallery = document.querySelector('.gallery-horizontal');
-const images = Array.from(gallery.querySelectorAll('img'));
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const closeBtn = document.querySelector('.lightbox .close');
-const leftArrow = document.querySelector('.lightbox .arrow.left');
-const rightArrow = document.querySelector('.lightbox .arrow.right');
-
-let currentIdx = 0;
-
-function openLightbox(idx) {
-  currentIdx = idx;
-  lightboxImg.src = images[idx].src;
-  lightbox.style.display = 'flex';
-}
-function closeLightbox() {
-  lightbox.style.display = 'none';
-  lightboxImg.src = '';
-}
-function showNext(n) {
-  currentIdx = (currentIdx + n + images.length) % images.length;
-  lightboxImg.src = images[currentIdx].src;
-}
-images.forEach((img, idx) => {
-  img.addEventListener('click', () => openLightbox(idx));
-});
-// Close on "X" or background
-closeBtn.onclick = closeLightbox;
-lightbox.onclick = e => { if(e.target === lightbox) closeLightbox(); };
-// Arrows
-leftArrow.onclick = e => { e.stopPropagation(); showNext(-1); };
-rightArrow.onclick = e => { e.stopPropagation(); showNext(1); };
-// Keyboard
-window.addEventListener('keydown', e => {
-  if(lightbox.style.display !== 'none') {
-    if(e.key === 'Escape') closeLightbox();
-    if(e.key === 'ArrowLeft') showNext(-1);
-    if(e.key === 'ArrowRight') showNext(1);
-  }
-});
-
-
-</script>
 <body>
-  <!-- ====================== HEADER ====================== -->
-  <a href="index.html" class="row-link">
-    <header class="site-header">
-    <div class="inner header-row">
-      <div class="col col-left">
-        <span class="category">PORTFOLIO</span>
-      </div>
-      <div class="col col-center">
-        <span class="proj-name">BEATRICE TRONCONI</span>
-      </div>
-      <div class="col col-right">
-        <span class="proj-year">2025</span>
-      </div>
-    </div>
-       
-    <div class="full-width-line-wrapper">
-      <div class="full-width-line"></div>
-    </div>
-  </header>
-</a>
-
-  <!-- PROJECT -->
-    <div class="inner content-row">
-      <div class="col col-left">
-        <span class="category">PROJECT</span>
-      </div>
-      <div class="col col-content">
-        <span>
-         SETTIMANA ENIGMISTICA - ASCII ART
-        </span>
-      </div>
-    </div>
-    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
-
-  <!-- YEAR -->
-    <div class="inner content-row">
-      <div class="col col-left">
-        <span class="category">YEAR</span>
-      </div>
-      <div class="col col-content">
-        <span>
-          2024
-        </span>
-      </div>
-    </div>
-    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
-
-  <!-- TEAM -->
-    <div class="inner content-row">
-      <div class="col col-left">
-        <span class="category">TEAM</span>
-      </div>
-      <div class="col col-content">
-        <span>
-         Alessandra Pedrini</span>
-        <span>Matteo Semeraro</span>
-        <span>Marco Taino</span>
-        <span>Costanza Turi</span>
-        <span>Ilaria Urgesi</span>
-        </span>
-      </div>
-    </div>
-    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
-
-  <!--DESCRIPTION -->
-    <div class="inner content-row">
-      <div class="col col-left">
-        <span class="category">DESCRIPTION</span>
-      </div>
-      <div class="col col-content">
-        <span>
-         This project was built to spread knowledge about a digital artistic movement.</span>
-          <span>The thought behind it is to spread a little-known artistic movement such ASCII art</span>
-          <span>with the most popular magazine in Italy: Settimana Enigmistica. This is built </span>
-          <span>as a special edition of the magazine focused entirely on ASCII Art, every content </span>
-          <span>of every page is designed with text, and every element is about history or fun fact </span>
-          <span>of ASCII Art. This is the combination of two opposite worlds, a digital one, </span>
-          <span>and a tangible, that unite with the purpose of creating a unique and fascinating medium.</span>
-        </span>
-      </div>
-    </div>
-    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+  <!-- ...qui tutto il tuo codice HTML... -->
 
   <!--GALLERY -->
   <div class="inner content-row">
@@ -164,23 +28,80 @@ window.addEventListener('keydown', e => {
     </div>
   </div>
   <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
-  
-  <!-- ====================== FOOTER (FISSO) ====================== -->
-  <!-- linea a tutta larghezza subito sopra il footer -->
-  
-<footer class="site-footer">
-  <a href="mailto:BEATRICETRONCONI4@GMAIL.COM" class="footer-link">
-    <div class="inner footer-row">
-      <div class="col col-left">
-        <span class="category">CONTACTS</span>
+
+  <!-- Popup lightbox -->
+  <div id="lightbox" class="lightbox" style="display:none;">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <span class="arrow left">&#8592;</span>
+    <span class="arrow right">&#8594;</span>
+  </div>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <a href="mailto:BEATRICETRONCONI4@GMAIL.COM" class="footer-link">
+      <div class="inner footer-row">
+        <div class="col col-left">
+          <span class="category">CONTACTS</span>
+        </div>
+        <div class="col col-center">
+          <span class="footer-email">BEATRICETRONCONI4@GMAIL.COM</span>
+        </div>
+        <div class="col col-right"></div>
       </div>
-      <div class="col col-center">
-        <span class="footer-email">BEATRICETRONCONI4@GMAIL.COM</span>
-      </div>
-      <div class="col col-right"></div>
-    </div>
-  </a>
-</footer>
+    </a>
+  </footer>
+
+  <!-- ========== SCRIPT: SOLO QUI SOTTO! ========== -->
+  <script>
+    // Scroll solo orizzontale con la rotella sulla gallery
+    const gallery = document.querySelector('.gallery-horizontal');
+    if(gallery){
+      gallery.addEventListener('wheel', function(e) {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          this.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+
+      // Lightbox
+      const images = Array.from(gallery.querySelectorAll('img'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.querySelector('.lightbox-img');
+      const closeBtn = document.querySelector('.lightbox .close');
+      const leftArrow = document.querySelector('.lightbox .arrow.left');
+      const rightArrow = document.querySelector('.lightbox .arrow.right');
+
+      let currentIdx = 0;
+
+      function openLightbox(idx) {
+        currentIdx = idx;
+        lightboxImg.src = images[idx].src;
+        lightbox.style.display = 'flex';
+      }
+      function closeLightbox() {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      }
+      function showNext(n) {
+        currentIdx = (currentIdx + n + images.length) % images.length;
+        lightboxImg.src = images[currentIdx].src;
+      }
+      images.forEach((img, idx) => {
+        img.addEventListener('click', () => openLightbox(idx));
+      });
+      closeBtn.onclick = closeLightbox;
+      lightbox.onclick = e => { if(e.target === lightbox) closeLightbox(); };
+      leftArrow.onclick = e => { e.stopPropagation(); showNext(-1); };
+      rightArrow.onclick = e => { e.stopPropagation(); showNext(1); };
+      window.addEventListener('keydown', e => {
+        if(lightbox.style.display !== 'none') {
+          if(e.key === 'Escape') closeLightbox();
+          if(e.key === 'ArrowLeft') showNext(-1);
+          if(e.key === 'ArrowRight') showNext(1);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
-
