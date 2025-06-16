@@ -243,7 +243,11 @@ body:not(.home) .content-row .col-right {
   border: 0;
   display: block;
 }
-
+.gallery-horizontal .video-fixed {
+  flex: 0 0 320px;
+  margin: 0;
+  max-width: none;
+}
 /* ================= FOOTER FISSO ================= */
 .footer-link {
   display: block;
