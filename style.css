@@ -235,11 +235,12 @@ body:not(.home) .content-row .col-right {
   transition: transform 0.2s;
 }
 
-.gallery-horizontal img:hover {
+/*.gallery-horizontal img:hover {
   filter: invert(1) hue-rotate(180deg);
   transition: filter 0.2s;
   /*cursor: pointer;*/
 }
+*/
 
 .video-fixed {
   width: 100%;
