@@ -1,4 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/suisse-intl');
 /* ================= RESET E BASE ================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +8,7 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Suisse Int\'l', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: #fff;
   color: #000;
   font-size: 16px;
@@ -290,7 +292,6 @@ scroll-snap-align: start;
 /* Testo “CONTACTS” e email: stessi stili delle altre righe */
 .category,
 .footer-email {
-  font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
 }
