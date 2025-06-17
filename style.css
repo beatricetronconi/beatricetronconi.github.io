@@ -340,7 +340,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  max-width: none;
+  max-width: 800px;
   pointer-events: none;
 }
 
