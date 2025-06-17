@@ -339,8 +339,8 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   bottom: 50px;            /* stay above the fixed footer */
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
+  max-width: none;
   pointer-events: none;
 }
 
