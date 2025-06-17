@@ -244,7 +244,7 @@ body:not(.home) .content-row .col-right {
   display: block;
 }
 .gallery-horizontal .video-fixed {
-  flex: 0 0 320px;
+  flex: 0 0 640px;
   margin: 0;
   max-width: none;
 scroll-snap-align: start;
