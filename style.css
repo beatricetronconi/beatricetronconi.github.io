@@ -299,8 +299,10 @@ scroll-snap-align: start;
 /* Testo “CONTACTS” e email: stessi stili delle altre righe */
 .category,
 .footer-email {
-  font-size: 16px;
   text-transform: uppercase;
+  font-family: 'Suisse Works', serif;
+  font-style: italic;
+  font-size: 18px;
 }
 
 /* ================= EVITIAMO CHE IL CONTENUTO SIA COPERTO DAL FOOTER ================ */
