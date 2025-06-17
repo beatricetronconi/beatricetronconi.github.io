@@ -214,7 +214,7 @@ body:not(.home) .content-row .col-right {
 
 .gallery-horizontal {
   display: flex;
-  gap: 18px;
+  gap: 0px;
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 12px;
