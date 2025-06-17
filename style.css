@@ -335,18 +335,22 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 }
 .project-preview {
   display: none;
-  position: fixed;
-  bottom: 50px;            /* stay above the fixed footer */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;          /* center within the page flow */
   pointer-events: none;
 }
 
 .project-preview img {
-  width: 80%;
+  width: 100%;
   height: auto;
+}
+
+@media (min-width: 768px) {
+  .project-preview {
+    width: 80%;
+    max-width: 600px;
+  }
 }
 
 #se-link:hover ~ .se-preview {
