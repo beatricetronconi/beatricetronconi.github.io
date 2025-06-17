@@ -98,6 +98,8 @@ body {
 .category {
   font-weight: normal;
   text-transform: uppercase;
+  font-family: 'Suisse Works', serif;
+  font-style: italic;
 }
 .proj-name {
   font-weight: normal;
@@ -112,7 +114,8 @@ body {
 .site-header .proj-name,
 .site-footer .category,
 .site-header .proj-year {
-  font-weight: bold;
+  font-family: 'Suisse Works', serif;
+  font-style: italic;
 }
 
 /* ================= SPAZIO SOTTO HEADER ================= */
