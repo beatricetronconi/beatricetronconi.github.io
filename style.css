@@ -247,7 +247,9 @@ body:not(.home) .content-row .col-right {
   flex: 0 0 320px;
   margin: 0;
   max-width: none;
+scroll-snap-align: start;
 }
+
 /* ================= FOOTER FISSO ================= */
 .footer-link {
   display: block;
