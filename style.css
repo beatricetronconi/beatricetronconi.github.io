@@ -339,16 +339,28 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   bottom: 50px;            /* stay above the fixed footer */
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: 80%;
   max-width: none;
   pointer-events: none;
 }
 
 .project-preview img {
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 
 #se-link:hover ~ .se-preview {
+  display: block;
+}
+#sd-link:hover ~ .sd-preview {
+  display: block;
+}
+#ex-link:hover ~ .ex-preview {
+  display: block;
+}
+#tr-link:hover ~ .tr-preview {
+  display: block;
+}
+#ph-link:hover ~ .ph-preview {
   display: block;
 }
