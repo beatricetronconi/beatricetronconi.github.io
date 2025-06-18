@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TREE OF HEAVEN OR HELL?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ====================== HEADER ====================== -->
+  <a href="index.html" class="row-link">
+    <header class="site-header">
+    <div class="inner header-row">
+      <div class="col col-left">
+        <span class="category">PORTFOLIO</span>
+      </div>
+      <div class="col col-center">
+        <span class="proj-name">BEATRICE TRONCONI</span>
+      </div>
+      <div class="col col-right">
+        <span class="proj-year">2025</span>
+      </div>
+    </div>
+       
+    <div class="full-width-line-wrapper">
+      <div class="full-width-line"></div>
+    </div>
+  </header>
+</a>
+
+  <!-- PROJECT -->
+    <div class="inner content-row">
+      <div class="col col-left">
+        <span class="category">PROJECT</span>
+      </div>
+      <div class="col col-content">
+        <span>
+         SETTIMANA ENIGMISTICA - ASCII ART
+        </span>
+      </div>
+    </div>
+    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+
+  <!-- YEAR -->
+    <div class="inner content-row">
+      <div class="col col-left">
+        <span class="category">YEAR</span>
+      </div>
+      <div class="col col-content">
+        <span>
+          2024
+        </span>
+      </div>
+    </div>
+    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+
+  <!-- DESIGN AREA -->
+    <div class="inner content-row">
+      <div class="col col-left">
+        <span class="category">DESIGN AREA</span>
+      </div>
+      <div class="col col-content">
+        <span>EDITORIAL DESIGN</span>
+        <span>GRAPHIC DESIGN</span>
+      </div>
+    </div>
+    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+
+  <!-- TEAM -->
+    <div class="inner content-row">
+      <div class="col col-left">
+        <span class="category">TEAM</span>
+      </div>
+      <div class="col col-content">
+        <span>
+         Alessandra Pedrini</span>
+        <span>Matteo Semeraro</span>
+        <span>Marco Taino</span>
+        <span>Costanza Turi</span>
+        <span>Ilaria Urgesi</span>
+        </span>
+      </div>
+    </div>
+    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+
+  <!--DESCRIPTION -->
+    <div class="inner content-row">
+      <div class="col col-left">
+        <span class="category">DESCRIPTION</span>
+      </div>
+      <div class="col col-content">
+        <span>
+         This project was built to spread knowledge about a digital artistic movement.</span>
+          <span>The thought behind it is to spread a little-known artistic movement such ASCII art</span>
+          <span>with the most popular magazine in Italy: Settimana Enigmistica. This is built </span>
+          <span>as a special edition of the magazine focused entirely on ASCII Art, every content </span>
+          <span>of every page is designed with text, and every element is about history or fun fact </span>
+          <span>of ASCII Art. This is the combination of two opposite worlds, a digital one, </span>
+          <span>and a tangible, that unite with the purpose of creating a unique and fascinating medium.</span>
+        </span>
+      </div>
+    </div>
+    <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+
+  <!--GALLERY -->
+  <div class="inner content-row">
+    <div class="col col-left">
+      <span class="category">GALLERY</span>
+    </div>
+    <div class="col col-content">
+      <div class="gallery-horizontal">
+        <img src="se0.jpg" alt="Gallery image 1">
+        <img src="se1.jpg" alt="Gallery image 2">
+        <img src="se2.jpg" alt="Gallery image 3">
+        <img src="se3.jpg" alt="Gallery image 4">
+        <img src="se4.jpg" alt="Gallery image 5">
+        <img src="se5.jpg" alt="Gallery image 6">
+        <img src="se7.jpg" alt="Gallery image 7">
+        <img src="se8.jpg" alt="Gallery image 8">
+        <img src="se9.jpg" alt="Gallery image 9">
+      </div>
+    </div>
+  </div>
+  <div class="full-width-line-wrapper"><div class="full-width-line"></div></div>
+
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <a href="mailto:BEATRICETRONCONI4@GMAIL.COM" class="footer-link">
+      <div class="inner footer-row">
+        <div class="col col-left">
+          <span class="category">CONTACTS</span>
+        </div>
+        <div class="col col-center">
+          <span class="footer-email">BEATRICETRONCONI4@GMAIL.COM</span>
+        </div>
+        <div class="col col-right"></div>
+      </div>
+    </a>
+  </footer>
+
+</body>
+</html>
