@@ -165,6 +165,7 @@ body {
 .row-link:hover,
 .row-link:focus {
   background: #000;
+  text-decoration: none;
 }
 
 .row-link:hover .site-header,
