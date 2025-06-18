@@ -130,7 +130,8 @@ body {
 
 /* ================= CONTENUTO PRINCIPALE ================= */
 /* Ogni riga di contenuto eredita .inner per max-width e padding orizzontale */
-.content-row {
+.content-row {display: flex;
+  flex-direction: row;
   /* align-items:center sulle .col fa già verticalmente centrare tutti i testi */
 }
 
