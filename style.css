@@ -345,14 +345,6 @@ scroll-snap-align: start;
     display: none;
   }
 }
-
-
-
-
-/* ==============
-
-
-
 /* ================= FOOTER FISSO ================= */
 .footer-link {
   display: block;
@@ -446,6 +438,10 @@ body, .inner, .content-row, .col, .col-content, .col-left {
     width: 80%;
     max-width: 500px;
   }
+}
+
+#ai-link:hover ~ .ai-preview {
+  display: block;
 }
 
 #se-link:hover ~ .se-preview {
