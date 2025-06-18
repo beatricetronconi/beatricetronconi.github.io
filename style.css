@@ -479,9 +479,16 @@ body, .inner, .content-row, .col, .col-content, .col-left {
     display: none;
   }
   .mobile-desc {
-    display: flex;
+    display: block;
   }
   .hide-mobile {
     display: none;
   }
+  /* footer eccessivamente alto sul mobile: aggiungiamo spazio extra */
+  main {
+    padding-bottom: 110px;
+  }
 }
+
+.hide-mobile {
+  display: block;
