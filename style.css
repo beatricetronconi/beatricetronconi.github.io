@@ -309,6 +309,24 @@ scroll-snap-align: start;
     max-width: 800px;
   }
 }
+@media (max-width: 768px) {
+  .row-link .inner,
+  .content-row {
+    flex-direction: column;
+  }
+
+  .col-left,
+  .col-center {
+    width: 100%;
+    flex: none;
+    margin-bottom: 5px;
+  }
+
+  .col-right {
+    display: none;
+  }
+}
+
 
 
 /* ================= FOOTER FISSO ================= */
