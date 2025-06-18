@@ -394,7 +394,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 .project-preview img {
   width: 100%;
   max-width: 1440px;
-  height: 400px;
+  height: 420px;
   object-fit: cover;
   margin: 0 auto;
 }
