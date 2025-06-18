@@ -311,7 +311,9 @@ scroll-snap-align: start;
 }
 @media (max-width: 768px) {
   .row-link .inner,
-  .content-row {
+  .content-row,
+  .header-row,
+  .footer-row {
     flex-direction: column;
   }
 
@@ -326,6 +328,9 @@ scroll-snap-align: start;
     display: none;
   }
 }
+
+
+/* ==============
 
 
 
