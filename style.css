@@ -463,11 +463,15 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   display: block;
 }
 .desktop-desc {
-  display: block;
+  /* retains flex layout from .inner */
 }
 
 .mobile-desc {
   display: none;
+}
+
+.hide-mobile {
+  /* visible by default */
 }
 
 @media (max-width: 768px) {
@@ -475,6 +479,9 @@ body, .inner, .content-row, .col, .col-content, .col-left {
     display: none;
   }
   .mobile-desc {
-    display: block;
+    display: flex;
+  }
+  .hide-mobile {
+    display: none;
   }
 }
