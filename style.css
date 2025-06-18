@@ -462,3 +462,19 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 #ph-link:hover ~ .ph-preview {
   display: block;
 }
+.desktop-desc {
+  display: block;
+}
+
+.mobile-desc {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-desc {
+    display: none;
+  }
+  .mobile-desc {
+    display: block;
+  }
+}
