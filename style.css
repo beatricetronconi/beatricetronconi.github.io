@@ -437,7 +437,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 @media (min-width: 768px) {
   .project-preview {
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
   }
 }
 
