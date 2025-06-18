@@ -310,6 +310,22 @@ scroll-snap-align: start;
   }
 }
 @media (max-width: 768px) {
+  .gallery-horizontal {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+  }
+  .gallery-horizontal img,
+  .gallery-horizontal .video-fixed {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+}
+
+@media (max-width: 768px) {
   .row-link .inner,
   .content-row,
   .header-row,
@@ -328,6 +344,8 @@ scroll-snap-align: start;
     display: none;
   }
 }
+
+
 
 
 /* ==============
