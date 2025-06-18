@@ -132,8 +132,7 @@ body {
 /* Ogni riga di contenuto eredita .inner per max-width e padding orizzontale */
 .content-row {display: flex;
   flex-direction: row;
-  /* align-items:center sulle .col fa già verticalmente centrare tutti i testi */
-}
+  flex-wrap: nowrap;
 
 /* Titoli dei progetti, margine inferiore fra più progetti */
 .project {
