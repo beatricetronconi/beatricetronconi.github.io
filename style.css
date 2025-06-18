@@ -162,11 +162,6 @@ body {
   color: inherit;
   transition: background 0.2s;
 }
-.row-link:hover,
-.row-link:focus {
-  background: #000;
-  text-decoration: none;
-}
 
 .row-link:hover .site-header,
 .row-link:focus .site-header {
@@ -416,6 +411,12 @@ a:focus {
 a:hover {
   color: #000;
   text-decoration: underline;
+}
+
+.row-link:hover,
+.row-link:focus {
+  background: #000;
+  text-decoration: none;
 }
 
 body, .inner, .content-row, .col, .col-content, .col-left {
