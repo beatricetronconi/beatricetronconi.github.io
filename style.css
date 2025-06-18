@@ -421,23 +421,24 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 }
 .project-preview {
   display: none;
-  width: 100%;
-  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
   pointer-events: none;
 }
 
 .project-preview img {
-  width: 100%;
-  max-width: 1440px;
+  width: 50%;
+  margin-left: calc(25% + 10px);
   height: 400px;
   object-fit: cover;
-  margin: 0 auto;
+  max-width: none;
+  display: block;
 }
 
-@media (min-width: 768px) {
-  .project-preview {
-    width: 80%;
-    max-width: 600px;
+@media (max-width: 767px) {
+  .project-preview img {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
