@@ -260,6 +260,57 @@ body:not(.home) .content-row .col-right {
 scroll-snap-align: start;
 }
 
+/*gallery verticale responsive*/
+
+.gallery-vertical {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px;
+  padding-right: 0px;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+.gallery-vertical img {
+  flex: 0 0 320px;
+  height: 400px;
+  object-fit: cover;
+  background: #ececec;
+  scroll-snap-align: start;
+  transition: transform 0.2s;
+}
+.gallery-vertical .video-fixed {
+  flex: 0 0 640px;
+  margin: 0;
+  max-width: none;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .gallery-vertical {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+  }
+  .gallery-vertical img {
+    flex: 0 0 auto;
+    height: auto;
+    width: 100%;
+  }
+  .gallery-vertical .video-fixed {
+    flex: 0 0 auto;
+    margin: auto;
+    max-width: 800px;
+  }
+}
+
+
 /* ================= FOOTER FISSO ================= */
 .footer-link {
   display: block;
