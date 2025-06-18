@@ -133,6 +133,7 @@ body {
 .content-row {display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  }
 
 /* Titoli dei progetti, margine inferiore fra più progetti */
 .project {
