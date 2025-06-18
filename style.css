@@ -361,7 +361,7 @@ scroll-snap-align: start;
 main {
   /* Aggiungiamo un padding-bottom pari all’altezza del footer (5px + 5px + 1px bordo) */
   padding-top: 0px;
-  padding-bottom: 50px;
+  padding-bottom: 54px;
 }
 
 a {
