@@ -335,7 +335,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 }
 .project-preview {
   display: none;
-  width: 100%;
+  width: 300%;
   max-width: none;
   margin: 0 auto;          /* center within the page flow */
   pointer-events: none;
