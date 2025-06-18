@@ -386,14 +386,14 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 }
 .project-preview {
   display: none;
-  width: 300%;
+  width: 150%;
   max-width: none;
   margin: 0 auto;          /* center within the page flow */
   pointer-events: none;
 }
 
 .project-preview img {
-  width: 300%;
+  width: 150%;
   height: auto;
 }
 
