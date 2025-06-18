@@ -395,7 +395,7 @@ scroll-snap-align: start;
 /* ================= EVITIAMO CHE IL CONTENUTO SIA COPERTO DAL FOOTER ================ */
 main {
   /* Aggiungiamo un padding-bottom pari all’altezza del footer (5px + 5px + 1px bordo) */
-  padding-top: 0px;
+  padding-top: 60px;
   padding-bottom: 60px;
 }
 
@@ -486,7 +486,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   /* footer eccessivamente alto sul mobile: aggiungiamo spazio extra */
   main {
     padding-bottom: 100px;
-    padding-top: 90px;
+    padding-top: 40px;
   }
 }
 
