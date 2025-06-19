@@ -403,6 +403,9 @@ a {
   text-decoration: underline;
   font-weight: normal;
 }
+a.row-link {
+  text-decoration: none;
+}
 /* ================= LINK UNDERLINED MA CHE RIMANE NERO ================ */
 a:visited,
 a:active,
@@ -496,3 +499,4 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 
 .hide-mobile {
   display: block;
+}
