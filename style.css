@@ -154,12 +154,6 @@ body {
 }
 */
 
-.row-link:hover,
-.row-link:focus {
-  background: #000;
-  text-decoration: none;
-}
-
 .row-link {
   display: block;
   width: 100vw;
@@ -420,8 +414,11 @@ a:hover {
   color: #000;
   text-decoration: underline;
 }
-
-
+.row-link:hover,
+.row-link:focus {
+  background: #000;
+  text-decoration: none;
+}
 
 body, .inner, .content-row, .col, .col-content, .col-left {
   overflow-x: hidden;
