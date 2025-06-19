@@ -436,7 +436,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 .project-preview img {
   width: 50%;
   margin-left: calc(25% + 10px);
-  height: 420px;
+  height: 300px;
   object-fit: cover;
   max-width: none;
   display: block;
