@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       linkId: 'ai-link',
       imgSelector: '.ai-preview img',
-      images: ['ai5.jpg', 'ai1.jpg', 'ai2.gif', 'ai3.jpg', 'ai4.gif'],
+      images: ['ai5.jpg', 'ai1.jpg', 'ai3.jpg', ],
       index: 0
     },
     {
