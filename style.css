@@ -499,7 +499,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   }
   /* header e footer più alti in mobile */
   .spacer {
-    height: 85px;
+    height: 80px;
   }
   main {
     padding-bottom: 130px;
