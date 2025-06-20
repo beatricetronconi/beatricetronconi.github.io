@@ -502,10 +502,13 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   .hide-mobile {
     display: none;
   }
-  /* footer eccessivamente alto sul mobile: aggiungiamo spazio extra */
+  /* header e footer più alti in mobile: regoliamo gli spazi */
+  .spacer {
+    height: 120px;
+  }
   main {
     padding-bottom: 100px;
-    padding-top: 100px;
+    padding-top: 0;
   }
 }
 
