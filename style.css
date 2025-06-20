@@ -502,12 +502,12 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   .hide-mobile {
     display: none;
   }
-  /* header e footer più alti in mobile: regoliamo gli spazi */
+  /* header e footer più alti in mobile */
   .spacer {
-    height: 120px;
+    height: 90px;
   }
   main {
-    padding-bottom: 100px;
+    padding-bottom: 120px;
     padding-top: 0;
   }
 }
