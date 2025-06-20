@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       linkId: 'ph-link',
       imgSelector: '.ph-preview img',
-      images: ['an-05.jpg', 'an-01.jpg', 'an-02.jpg', 'an-03.jpg', 'an-04.jpg', 'an-06.jpg', 'an-07.jpg', 'an-08.jpg', 'an-09.jpg', 'an-10.jpg', 'an-11.jpg', 'an-12.jpg', 'an-13.jpg', 'an-14.jpg', 'an-15.jpg', 'an-16.jpg', 'an-17.jpg', 'an-18.jpg', 'an-19.jpg', 'an-20.jpg'],
+      images: ['an-05.jpg', 'an-01.jpg', 'an-02.jpg', 'an-04.jpg', 'an-06.jpg', 'an-07.jpg', 'an-08.jpg', 'an-09.jpg', 'an-10.jpg', 'an-11.jpg', 'an-12.jpg', 'an-13.jpg', 'an-14.jpg', 'an-15.jpg', 'an-16.jpg', 'an-17.jpg', 'an-18.jpg', 'an-19.jpg', 'an-20.jpg'],
       index: 0
     }
   ];
