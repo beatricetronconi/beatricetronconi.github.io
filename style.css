@@ -73,7 +73,7 @@ body {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.1s, color 0.1s;
 }
 
 .HEADER-link:hover,
@@ -173,7 +173,7 @@ body {
   transform: translateX(-50%);
   text-decoration: none;
   color: inherit;
-  transition: background 0.2s;
+  transition: background 0.1s;
 }
 
 a.row-link:hover + .full-width-line-wrapper .full-width-line,
@@ -186,7 +186,7 @@ a.row-link:focus + .full-width-line-wrapper .full-width-line {
 .row-link:focus .inner span,
 .row-link:focus .inner div {
   color: #fff;
-  transition: color 0.2s;
+  transition: color 0.1s;
 }
 
 .row-link .inner {
@@ -359,7 +359,7 @@ scroll-snap-align: start;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.1s, color 0.1s;
 }
 
 .footer-link:hover,
