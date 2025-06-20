@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       linkId: 'ex-link',
       imgSelector: '.ex-preview img',
-      images: ['ex4.jpg', 'ex1.jpg', 'ex2.jpg', 'ex3.jpg', 'ex5.jpg', 'ex6.jpg', 'ex7.jpg'],
+      images: ['ex4.jpg', 'ex1.jpg', 'ex2.jpg', 'ex5.jpg', 'ex6.jpg', 'ex7.jpg'],
       index: 0
     },
     {
