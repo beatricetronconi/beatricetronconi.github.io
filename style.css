@@ -241,13 +241,11 @@ body:not(.home) .content-row .col-right {
   scroll-snap-align: start;
   transition: transform 0.2s;
 }
-
-/*.gallery-horizontal img:hover {
-  filter: invert(1) hue-rotate(180deg);
-  transition: filter 0.2s;
-  /*cursor: pointer;*/
+.gallery-horizontal img.small-gif {
+  flex: 0 0 240px;
+  height: 300px;
+  align-self: center;
 }
-*/
 
 .video-fixed {
   width: 100%;
