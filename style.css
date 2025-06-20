@@ -163,7 +163,7 @@ body {
 .about-text {
   /* rimane vuoto */
 }
-*/
+
 
 .row-link {
   display: block;
@@ -176,13 +176,8 @@ body {
   transition: background 0.2s;
 }
 
-.row-link:hover .site-header,
-.row-link:focus .site-header {
-  background: #000;
-}
-
-.row-link:hover .full-width-line,
-.row-link:focus .full-width-line {
+a.row-link:hover + .full-width-line-wrapper .full-width-line,
+a.row-link:focus + .full-width-line-wrapper .full-width-line {
   border-top: 1px solid #fff;
 }
 
