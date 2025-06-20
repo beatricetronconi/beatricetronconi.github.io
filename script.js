@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       linkId: 'tr-link',
       imgSelector: '.tr-preview img',
-      images: ['tr5.png', 'tr0.jpg', 'tr1.jpg', 'tr2.jpg', 'tr3.jpg', 'tr6.jpg', 'tr7.png', 'tr1.JPG'],
+      images: ['tr5.png', 'tr0.jpg', 'tr1.jpg', 'tr2.jpg', 'tr4-2.jpg', 'tr3.jpg', 'tr6.jpg', 'tr7.png', 'tr1.JPG'],
       index: 0
     },
     {
