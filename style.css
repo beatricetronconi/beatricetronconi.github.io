@@ -435,8 +435,9 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 }
 .project-preview {
   display: none;
-  max-width: 9000px;
+  max-width: 500px;
   margin: 0 auto;
+  margin-top: 20px;
   pointer-events: none;
 }
 
