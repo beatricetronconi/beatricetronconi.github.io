@@ -440,7 +440,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 }
 .project-preview {
   display: none;
-  max-width: 6000px;
+  max-width: 9000px;
   margin: 0 auto;
   pointer-events: none;
 }
@@ -448,7 +448,7 @@ body, .inner, .content-row, .col, .col-content, .col-left {
 .project-preview img {
   width: 50%;
   margin-left: calc(25% + 10px);
-  height: 320px;
+  height: 350px;
   object-fit: cover;
   max-width: none;
   display: block;
