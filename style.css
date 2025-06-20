@@ -504,10 +504,10 @@ body, .inner, .content-row, .col, .col-content, .col-left {
   }
   /* header e footer più alti in mobile */
   .spacer {
-    height: 90px;
+    height: 85px;
   }
   main {
-    padding-bottom: 120px;
+    padding-bottom: 110px;
     padding-top: 0;
   }
 }
