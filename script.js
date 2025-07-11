@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       linkId: 'sd-link',
       imgSelector: '.sd-preview img',
-      images: ['sd01.jpg', 'sd02.jpg', 'sd03.jpg', 'sd04.jpg', 'sd05.jpg', 'sd06.jpg', 'sd07.jpg', 'sd08.jpg', 'sd09.jpg', 'sd10.jpg', 'sd11.jpg', 'sd12.jpg', 'sd13.jpg'],
+      images: ['sd01.jpg', 'sd02.jpg', 'sd03.jpg', 'sd04.jpg', 'sd05.jpg', 'sd09.jpg', 'sd10.jpg', 'sd13.jpg'],
       index: 0
     },
     {
