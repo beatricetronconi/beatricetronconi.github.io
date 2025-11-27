@@ -19,7 +19,7 @@ body {
 }
 
 /* ================= CONTENITORE INTERNO “CENTERED” ================= */
-/* Pad orizzontale ridotto a 10px per spostare tutto un po’ a sinistra */
+/* Pad orizzontale  */
 .inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -27,7 +27,7 @@ body {
   padding: 10px;   /* 10px sopra, 10px sotto, 10px dx e sx */
 }
 
-/* Ogni riga avrà 3 colonne: left / center / right */
+/* 3 colonne: left / center / right */
 .col {
   display: flex;
   align-items: center; /* Verticalmente centrati in ogni colonna */
@@ -46,7 +46,7 @@ body {
   flex: 1;
   justify-content: flex-start;
 }
-/* Applico 5px di padding sopra e sotto SOLO alla riga “ABOUT ME” 
+/* 5px di padding sopra e sotto SOLO alla riga “ABOUT ME” 
 .about-row {
   padding: 20px 10px;
 }*/
@@ -389,7 +389,8 @@ scroll-snap-align: start;
 
 /* Testo “CONTACTS” e email: stessi stili delle altre righe */
 .category,
-.footer-email {
+.footer-email 
+.proj-year {
   text-transform: uppercase;
   font-family: 'Suisse Works', serif;
   font-style: italic;
