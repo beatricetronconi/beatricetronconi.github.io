@@ -111,8 +111,7 @@ body {
 .category {
   font-weight: normal;
   text-transform: uppercase;
-  font-family: 'Suisse Int\'l', serif;
-  font-style: italic;
+  font-family: 'Suisse Int\'l', sans-serif;
   font-size: 18px;
 }
 .proj-name {
@@ -128,8 +127,7 @@ body {
 .site-header .proj-name,
 .site-footer .category,
 .site-header .proj-year {
-  font-family: 'Suisse Works', sans-serif;
-  font-style: italic;
+  font-family: 'Suisse Int\'l', sans-serif;
   font-size: 18px;
 }
 
@@ -392,8 +390,7 @@ scroll-snap-align: start;
 .footer-email 
 .proj-year {
   text-transform: uppercase;
-  font-family: 'Suisse Works', serif;
-  font-style: italic;
+  font-family: 'Suisse Int\'l', sans-serif;
   font-size: 18px;
 }
 
