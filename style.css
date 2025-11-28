@@ -112,7 +112,7 @@ body {
   font-weight: normal;
   text-transform: uppercase;
   font-family: 'Suisse Int\'l', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 .proj-name {
   font-weight: normal;
@@ -391,7 +391,7 @@ scroll-snap-align: start;
 .proj-year {
   text-transform: uppercase;
   font-family: 'Suisse Int\'l', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* ================= EVITIAMO CHE IL CONTENUTO SIA COPERTO DAL FOOTER ================ */
