@@ -17,8 +17,8 @@ body {
   padding-top: 0px;
   
 }
-.spaced {
-  line-height: 2;
+.space-after {
+  margin-bottom: 1.2em;
 }
 
 /* ================= CONTENITORE INTERNO “CENTERED” ================= */
