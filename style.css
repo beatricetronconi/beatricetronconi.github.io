@@ -17,6 +17,10 @@ body {
   padding-top: 0px;
   
 }
+.spaced {
+  line-height: 2;
+  display: inline-block;
+}
 
 /* ================= CONTENITORE INTERNO “CENTERED” ================= */
 /* Pad orizzontale  */
