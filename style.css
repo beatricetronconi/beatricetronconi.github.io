@@ -1,512 +1,197 @@
-@import url('https://fonts.cdnfonts.com/css/suisse-intl');
-@import url('https://fonts.cdnfonts.com/css/suisse-works');
-/* ================= RESET E BASE ================= */
+/* ============ Beatrice Tronconi – portfolio ============
+   One page. One typeface, one size, one weight everywhere. */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --font: 'Suisse Int\'l', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --line: 1px solid #000;
+  --pad: 10px;
+  --bar-h: 45px;          /* header and footer height */
+  --nav-w: 25%;
 }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--bar-h); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 body {
-  font-family: 'Suisse Int\'l', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: #fff;
-  color: #000;
+  font-family: var(--font);
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
-  padding-top: 0px;
-  
-}
-.space-after {
-  margin-bottom: 1.2em;
-}
-
-/* ================= CONTENITORE INTERNO “CENTERED” ================= */
-/* Pad orizzontale  */
-.inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  padding: 10px;   /* 10px sopra, 10px sotto, 10px dx e sx */
-}
-
-/* 3 colonne: left / center / right */
-.col {
-  display: flex;
-  align-items: center; /* Verticalmente centrati in ogni colonna */
-  line-height: normal; 
-}
-/* Colonne con proporzioni fisse: 1 / 2 / 1 */
-.col-left {
-  flex: 1;
-  justify-content: flex-start;
-}
-.col-center {
-  flex: 2;
-  justify-content: flex-start;
-}
-.col-right {
-  flex: 1;
-  justify-content: flex-start;
-}
-/* 5px di padding sopra e sotto SOLO alla riga “ABOUT ME” 
-.about-row {
-  padding: 20px 10px;
-}*/
-/* Poiché .about-row eredita già .inner (che ha padding:10px orizzontale),
-   questa regola aggiunge 5px sopra e 5px sotto alla riga intera. */
-/* ================= LINEA A TUTTA LARGHEZZA ================= */
-.full-width-line-wrapper {
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.full-width-line {
-  width: 100%;
-  border-top: 1px solid #000;
-}
-
-/* ================= HEADER ================= */
-.HEADER-link {
-  display: block;
-  width: 100%;
-  height: 100%;
+  color: #000;
   background: #fff;
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.1s, color 0.1s;
+  padding-bottom: var(--bar-h);
 }
 
-.HEADER-link:hover,
-.HEADER-link:focus {
-  background: #000;
-  color: #fff;
+/* same size and weight for every element */
+h1, h2, h3, p, b, strong, figcaption, a, span, li {
+  font: inherit;
 }
+ul { list-style: none; }
 
+a { color: #000; text-decoration: underline; }
+a:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
+img { display: block; max-width: 100%; height: auto; }
+
+.label, .bar, .index, .section-title { text-transform: uppercase; }
+
+/* ============ HEADER / FOOTER ============ */
+.bar {
+  display: grid;
+  grid-template-columns: var(--nav-w) 1fr auto;
+  align-items: center;
+  min-height: var(--bar-h);
+}
+.bar > * { padding: 0 var(--pad); }
 
 .site-header {
-  position: fixed;      /* Rimane in cima se scrolli */
+  position: sticky;
   top: 0;
-  width: 100%;
+  z-index: 20;
   background: #fff;
-  z-index: 10;
-}
-
-.HEADER-link:hover .site-header,
-.HEADER-link:focus .site-header {
-  background: #000;
-}
-
-.HEADER-link:hover .full-width-line,
-.HEADER-link:focus .full-width-line {
-  border-top: 1px solid #fff;
-}
-
-
-/* Header con padding: 5px sopra/sotto e 10px dx/sx */
-.header-row {
-  padding: 10px 10px;
-}
-
-/* Testi nell’header: “PORTFOLIO” – “BEATRICE TRONCONI” – “2025” */
-.category {
-  font-weight: normal;
-  text-transform: uppercase;
-  font-family: 'Suisse Int\'l', sans-serif;
-  font-size: 16px;
-}
-.proj-name {
-  font-weight: normal;
-  font-size: 16px;
-}
-.proj-year {
-  font-weight: normal;
-  font-size: 16px;
-}
-/* Header and footer categories remain bold */
-.site-header .category,
-.site-header .proj-name,
-.site-footer .category,
-.site-header .proj-year {
-  font-family: 'Suisse Int\'l', sans-serif;
-  font-size: 18px;
-}
-
-/* ================= SPAZIO SOTTO HEADER ================= */
-/* Serve se l’header è sticky: impedisce che MAIN finisca sotto l’header */
-.spacer {
-  /* .header-row ha 5px di padding-top + 5px di padding-bottom = 10px totali */
-  height: 43px;
-}
-
-/* ================= CONTENUTO PRINCIPALE ================= */
-/* Ogni riga di contenuto eredita .inner per max-width e padding orizzontale */
-.content-row {display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  }
-
-/* Titoli dei progetti, margine inferiore fra più progetti */
-.project {
-  margin-bottom: 0px;
-  font-size: 16px;
-}
-
-/* Date dei progetti, margine inferiore per spaziatura */
-.proj-year {
-  margin-bottom: 0px;
-  font-size: 16px;
-}
-
-/* Nessun margine su ABOUT ME, così rimane alta come le altre righe */
-.about-text {
-  /* rimane vuoto */
-}
-
-
-.row-link {
-  display: block;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-  color: inherit;
-  transition: background 0.1s;
-}
-
-a.row-link:hover + .full-width-line-wrapper .full-width-line,
-a.row-link:focus + .full-width-line-wrapper .full-width-line {
-  border-top: 1px solid #fff;
-}
-
-.row-link:hover .inner span,
-.row-link:hover .inner div,
-.row-link:focus .inner span,
-.row-link:focus .inner div {
-  color: #fff;
-  transition: color 0.1s;
-}
-
-.row-link .inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  padding: 10px;
-}
-/* Per tutte le pagine tranne index.html: righe con due colonne */
-body:not(.home) .content-row .col-left {
-  flex: 1;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-body:not(.home) .content-row .col-content {
-  flex: 3;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.col-content {
-  padding: 0;
-}
-
-/* Nascondi col-center e col-right se le hai lasciate (tranne nell'header) */
-body:not(.home) .content-row .col-center,
-body:not(.home) .content-row .col-right {
-  display: none;
-}
-
-.gallery-horizontal {
-  display: flex;
-  gap: 0px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 12px;
-  padding-right: 0px;
-  scroll-snap-type: x mandatory;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 12px;
-}
-
-.gallery-horizontal img {
-  flex: 0 0 320px;
-  height: 400px;
-  object-fit: cover;
-  background: #ececec;
-  scroll-snap-align: start;
-  transition: transform 0.2s;
-}
-.gallery-horizontal img.small-gif {
-  flex: 0 0 240px;
-  height: 200px;
-  align-self: center;
-}
-
-.video-fixed {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-}
-.video-fixed iframe {
-  width: 100%;
-  height: 400px;
-  border: 0;
-  display: block;
-}
-.gallery-horizontal .video-fixed {
-  flex: 0 0 640px;
-  margin: 0;
-  max-width: none;
-scroll-snap-align: start;
-}
-
-/*gallery verticale responsive*/
-
-.gallery-vertical {
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 12px;
-  padding-right: 0px;
-  scroll-snap-type: x mandatory;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 12px;
-}
-.gallery-vertical img {
-  flex: 0 0 320px;
-  height: 400px;
-  object-fit: cover;
-  background: #ececec;
-  scroll-snap-align: start;
-  transition: transform 0.2s;
-}
-.gallery-vertical .video-fixed {
-  flex: 0 0 640px;
-  margin: 0;
-  max-width: none;
-  scroll-snap-align: start;
-}
-
-@media (max-width: 768px) {
-  .gallery-vertical {
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
-  }
-  .gallery-vertical img {
-    flex: 0 0 auto;
-    height: auto;
-    width: 100%;
-  }
-  .gallery-vertical .video-fixed {
-    flex: 0 0 auto;
-    margin: auto;
-    max-width: 800px;
-  }
-}
-@media (max-width: 768px) {
-  .gallery-horizontal {
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-  }
-  .gallery-horizontal img,
-  .gallery-horizontal .video-fixed {
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    margin: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .row-link .inner,
-  .content-row,
-  .header-row,
-  .footer-row {
-    flex-direction: column;
-  }
-
-  .col-left,
-  .col-center {
-    width: 100%;
-    flex: none;
-    margin-bottom: 5px;
-  }
-
-  .col-right {
-    display: none;
-  }
-}
-/* ================= FOOTER FISSO ================= */
-.footer-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.1s, color 0.1s;
-}
-
-.footer-link:hover,
-.footer-link:focus {
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-}
-
-/* Cambia anche tutti i testi figli su hover */
-.footer-link:hover .category,
-.footer-link:hover .footer-email {
-  color: #fff;
+  border-bottom: var(--line);
 }
 .site-footer {
-  position: fixed;     /* Footer sempre visibile in basso */
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 20;
   background: #fff;
-  z-index: 10;
-  border-top: 1px solid #000; /* Separa dal contenuto sovrastante */
+  border-top: var(--line);
+}
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ============ TWO COLUMNS: INDEX + CONTENT ============ */
+.layout {
+  display: grid;
+  grid-template-columns: var(--nav-w) 1fr;
+  align-items: start;
 }
 
-/* Footer con padding: 5px sopra/sotto e 10px dx/sx (uguale all’header) */
-.footer-row {
-  padding: 15px 10px;
+.index {
+  position: sticky;
+  top: var(--bar-h);
+  height: calc(100vh - 2 * var(--bar-h));
+  overflow-y: auto;
+  border-right: var(--line);
+  scrollbar-width: thin;
 }
-
-/* Testo “CONTACTS” e email: stessi stili delle altre righe */
-.category,
-.footer-email 
-.proj-year {
-  text-transform: uppercase;
-  font-family: 'Suisse Int\'l', sans-serif;
-  font-size: 16px;
-}
-
-/* ================= EVITIAMO CHE IL CONTENUTO SIA COPERTO DAL FOOTER ================ */
-main {
-  /* Aggiungiamo un padding-bottom pari all’altezza del footer (5px + 5px + 1px bordo) */
-  padding-top: 0px;
-  padding-bottom: 50px;
-}
-
-a {
+.index a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: var(--pad);
+  padding: var(--pad);
+  border-bottom: var(--line);
   color: #000;
-  text-decoration: underline;
-  font-weight: normal;
-}
-a.row-link {
   text-decoration: none;
+  transition: background 0.1s, color 0.1s;
 }
-/* ================= LINK UNDERLINED MA CHE RIMANE NERO ================ */
-a:visited,
-a:active,
-a:focus {
-  color: #000;
-}
-
-a:hover {
-  color: #000;
-  text-decoration: underline;
-}
-a.row-link:hover,
-a.row-link:focus {
+.index .c { grid-column: 1 / -1; }
+.index a:hover,
+.index a:focus-visible,
+.index a[aria-current="true"] {
   background: #000;
-  text-decoration: none;
+  color: #fff;
+  outline: none;
 }
 
-body, .inner, .content-row, .col, .col-content, .col-left {
-  overflow-x: hidden;
-}
-.project-preview {
-  display: none;
-  max-width: 700px;
-  margin: 0 auto;
-  margin-top: 35px;
-  pointer-events: none;
+main { min-width: 0; }
+
+/* ============ SECTIONS ============ */
+.section-title {
+  position: sticky;
+  top: var(--bar-h);
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--pad);
+  padding: var(--pad);
+  background: #000;
+  color: #fff;
 }
 
-.project-preview img {
-  width: 50%;
-  margin-left: calc(25% + 10px);
-  height: 350px;
-  object-fit: cover;
-  max-width: none;
-  display: block;
+.row { border-bottom: var(--line); }
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: start;
+  padding: var(--pad);
+}
+.inner > * { padding-right: var(--pad); min-width: 0; }
+
+.text { max-width: 62ch; }
+
+/* ============ GALLERIES ============ */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pad);
+  padding: 2px 0 var(--pad);
+}
+.shot {
+  position: relative;
+  /* full column width, but never taller than the screen */
+  width: min(100%, calc((100vh - 3 * var(--bar-h) - 20px) * var(--r)));
+}
+.shot img { width: 100%; background: #ececec; }
+.shot:has(img.small) { width: min(100%, 360px); }
+.shot img.small { background: none; }
+.shot figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 4px 9px;
+  background: #000;
+  color: #fff;
 }
 
-@media (max-width: 767px) {
-  .project-preview img {
-    width: 100%;
-    margin-left: 0;
-  }
-}
+.video { aspect-ratio: 16 / 9; width: 100%; background: #ececec; }
+.video iframe { width: 100%; height: 100%; border: 0; display: block; }
 
-#ai-link:hover ~ .ai-preview {
-  display: block;
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pad);
+  align-items: start;
+  padding: 2px 0 var(--pad);
 }
+.photo-grid .shot { width: 100%; }
 
-#se-link:hover ~ .se-preview {
-  display: block;
+/* ============ ABOUT ============ */
+.entries { display: grid; gap: 1.2em; }
+.entry {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr;
+  column-gap: var(--pad);
 }
-#sd-link:hover ~ .sd-preview {
-  display: block;
-}
-#ex-link:hover ~ .ex-preview {
-  display: block;
-}
-#tr-link:hover ~ .tr-preview {
-  display: block;
-}
-#ph-link:hover ~ .ph-preview {
-  display: block;
-}
-.desktop-desc {
-  /* retains flex layout from .inner */
-}
+.entry-text { grid-column: 1 / -1; max-width: 62ch; }
 
-.mobile-desc {
-  display: none;
-}
-
-.hide-mobile {
-  /* visible by default */
-}
-
+/* ============ MOBILE ============ */
 @media (max-width: 768px) {
-  .desktop-desc {
-    display: none;
-  }
-  .mobile-desc {
-    display: block;
-  }
-  .hide-mobile {
-    display: none;
-  }
-  /* header e footer più alti in mobile */
-  .spacer {
-    height: 80px;
-  }
-  main {
-    padding-bottom: 130px;
-    padding-top: 0;
-  }
-}
+  body { padding-bottom: 0; }
 
-.hide-mobile {
-  display: block;
+  .bar { grid-template-columns: 1fr auto; }
+  .hide-m { display: none; }
+
+  .site-footer { position: static; }
+  .site-footer .bar { grid-template-columns: 1fr; padding: var(--pad) 0; }
+
+  /* the index becomes the top of the page */
+  .layout { grid-template-columns: 1fr; }
+  .index {
+    position: static;
+    height: auto;
+    overflow: visible;
+    border-right: 0;
+  }
+  .index a[aria-current="true"] { background: #fff; color: #000; }
+
+  .inner { grid-template-columns: 1fr; row-gap: 5px; }
+  .entry { grid-template-columns: 1fr; }
+  .shot { width: 100%; }
+  .shot:has(img.small) { width: min(100%, 360px); }
+  .photo-grid { grid-template-columns: 1fr; }
 }
