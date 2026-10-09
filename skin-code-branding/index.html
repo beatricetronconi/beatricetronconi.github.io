@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Skin Code Branding: atlante dei codici visivi di 14 brand beauty asiatici e occidentali su Instagram, dalla tesi Framing Beauty (Politecnico di Milano).">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Skin Code Branding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: una cornice di lavoro. Testata con mirini, barra dei codici (filtri) condivisa, quattro viste: mappa, indice, locale/globale, metodo. La scheda brand si apre come pannello laterale. */
+:root {
+  --bg: #f5f3f4;
+  --surface: #fcfbfb;
+  --ink: #1e1a1c;
+  --ink-2: #5d5559;
+  --ink-3: #8c8387;
+  --rule: #ddd6d9;
+  --rule-strong: #b9b0b4;
+  --accent: #b23a55;
+  --accent-soft: #f3e3e7;
+  --k: #1e1c1d;
+  --j: #6e696b;
+  --w: #aaa5a7;
+  --scrim: rgba(30, 26, 28, .38);
+  --shadow: 0 18px 50px rgba(30, 26, 28, .18);
+  /* Font del progetto: Ballet (titoli) e Suisse Int'l (testo, se installato; altrimenti Helvetica). */
+  --f-display: "Ballet", "Snell Roundhand", "Apple Chancery", cursive, Georgia, serif;
+  --f-body: "Suisse Intl", "Suisse Int'l", "SuisseIntl", "Suisse International", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-mono: "Suisse Intl Mono", "Suisse Int'l Mono", "SuisseIntlMono", "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161315; --surface: #1f1b1d; --ink: #f1ecee; --ink-2: #bdb3b7; --ink-3: #8a8085;
+    --rule: #342e31; --rule-strong: #554d51; --accent: #e57d95; --accent-soft: #3a2229;
+    --k: #f1ecee; --j: #a39b9f; --w: #5e575a; --scrim: rgba(0,0,0,.55); --shadow: 0 18px 50px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161315; --surface: #1f1b1d; --ink: #f1ecee; --ink-2: #bdb3b7; --ink-3: #8a8085;
+  --rule: #342e31; --rule-strong: #554d51; --accent: #e57d95; --accent-soft: #3a2229;
+  --k: #f1ecee; --j: #a39b9f; --w: #5e575a; --scrim: rgba(0,0,0,.55); --shadow: 0 18px 50px rgba(0,0,0,.5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); padding-block: 0 64px; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); font-size: 12px; letter-spacing: .02em; }
+.eyebrow { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+
+/* Testata */
+header.top { padding-block: 28px 16px; display: grid; gap: 18px; }
+.frame-title { position: relative; padding: 18px 22px 20px; justify-self: start; max-width: 100%; }
+.frame-title::before, .frame-title::after, .frame-title span.c3, .frame-title span.c4 { content: ""; position: absolute; width: 16px; height: 16px; border-color: var(--ink); border-style: solid; }
+.frame-title::before { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+.frame-title::after { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+.frame-title span.c3 { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+.frame-title span.c4 { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 7vw, 76px); line-height: .98; letter-spacing: -.02em; margin: 6px 0 0; text-wrap: balance; }
+h1 em { font-style: italic; font-weight: 400; color: inherit; }
+.lede { max-width: 64ch; color: var(--ink-2); font-size: 16.5px; margin: 0; text-wrap: pretty; }
+
+/* Navigazione */
+nav.views { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); z-index: 20; padding-top: 8px; }
+nav.views a { text-decoration: none; padding: 10px 14px 11px; font-weight: 500; color: var(--ink-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.views a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
+nav.views a:hover { color: var(--ink); }
+nav.views .count { font-family: var(--f-mono); font-size: 11px; color: var(--ink-3); margin-left: 4px; }
+
+/* Layout: colonna dei codici + contenuto */
+.layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 36px; align-items: start; }
+.layout.full { grid-template-columns: minmax(0, 1fr); }
+.side-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 60px); padding-top: 28px; }
+.side-col[hidden] { display: none; }
+/* Barra dei codici */
+.codes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 0; }
+.codes fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.codes legend { padding: 0; margin-bottom: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--rule-strong); background: transparent; border-radius: 999px; padding: 3px 10px; font-size: 13px; cursor: pointer; color: var(--ink-2); line-height: 1.5; }
+.chip:hover { border-color: var(--ink); color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.codes-foot { display: grid; gap: 10px; color: var(--ink-2); font-size: 13.5px; border-top: 1px solid var(--rule); padding-top: 14px; }
+.codes-foot .row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.linkbtn { background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; color: var(--ink-2); }
+.linkbtn:hover { color: var(--ink); }
+.legend-areas { display: flex; gap: 6px 14px; flex-wrap: wrap; }
+.area-key { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.shape { width: 10px; height: 10px; display: inline-block; flex: none; }
+.shape { width: 12px; height: 12px; border-radius: 50%; }
+.shape.k { background: radial-gradient(circle, var(--k) 40%, transparent 72%); }
+.shape.j { background: radial-gradient(circle, var(--j) 40%, transparent 72%); }
+.shape.w { background: radial-gradient(circle, var(--w) 40%, transparent 72%); }
+.codes-toggle { display: none; }
+
+section.view { padding-top: 28px; }
+section.view[hidden] { display: none; }
+h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; margin: 0 0 6px; letter-spacing: -.01em; text-wrap: balance; }
+.view-intro { max-width: 68ch; color: var(--ink-2); margin: 0 0 20px; }
+
+/* Mappa */
+.map-box { position: relative; background: var(--surface); border: 1px solid var(--rule); }
+#map { display: block; width: 100%; height: auto; }
+#map text { font-family: var(--f-body); }
+#map .axis-label { font-family: var(--f-mono); font-size: 11.5px; fill: var(--ink-3); letter-spacing: .04em; }
+#map .axis-name { font-size: 12.5px; font-weight: 600; fill: var(--ink-2); }
+#map .quad { font-family: var(--f-display); font-style: italic; font-size: 17px; fill: var(--ink-3); }
+#map .grid { stroke: var(--rule); }
+#map .frame { stroke: var(--rule-strong); fill: none; }
+#map .brand { cursor: pointer; transition: opacity .2s; }
+#map .brand.dim { opacity: .14; }
+#map .brand .label { font-size: 13.5px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+#map .brand .ring { fill: none; stroke: var(--ink); stroke-width: 1.25; opacity: 0; transition: opacity .15s; }
+#map .brand:hover .ring, #map .brand:focus .ring { opacity: 1; }
+#map .brand:focus { outline: none; }
+#map .brand:focus .label { text-decoration: underline; }
+.map-note { color: var(--ink-3); font-size: 13px; margin: 10px 0 0; max-width: 80ch; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); padding: 8px 10px; font-size: 12.5px; max-width: 240px; line-height: 1.4; transform: translate(-50%, calc(-100% - 14px)); opacity: 0; transition: opacity .12s; z-index: 5; }
+.tip.on { opacity: 1; }
+.tip b { display: block; font-size: 13.5px; }
+
+/* Indice */
+.grid-brands { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.card { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; text-align: left; background: var(--surface); border: 1px solid var(--rule); padding: 14px; cursor: pointer; transition: border-color .15s, opacity .2s; }
+.card:hover { border-color: var(--ink); }
+.card.dim { opacity: .3; }
+.card h3 { font-family: var(--f-display); font-weight: 400; font-size: 22px; margin: 0; line-height: 1.15; }
+.card .meta { display: flex; align-items: center; gap: 6px; margin: 2px 0 8px; color: var(--ink-2); font-size: 13px; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: 11.5px; border: 1px solid var(--rule); padding: 1px 7px; color: var(--ink-2); border-radius: 3px; }
+.vbar { display: flex; flex-direction: column; width: 100%; min-height: 120px; height: 100%; border: 1px solid var(--rule-strong); }
+.vbar i { display: block; min-height: 1px; }
+.hbar { display: flex; height: 22px; width: 100%; border: 1px solid var(--rule-strong); }
+.hbar i { display: block; height: 100%; min-width: 1px; }
+.group-title { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.group-title:first-child { margin-top: 0; }
+
+/* Locale / globale */
+.pairs { display: grid; gap: 14px; }
+.pair { display: grid; grid-template-columns: 170px minmax(0, 1fr) minmax(0, 1fr); gap: 0; background: var(--surface); border: 1px solid var(--rule); }
+.pair > * { padding: 16px; min-width: 0; }
+.pair .who { border-right: 1px solid var(--rule); display: grid; align-content: start; gap: 4px; }
+.pair .who h3 { font-family: var(--f-display); font-weight: 400; font-size: 22px; margin: 0; line-height: 1.1; }
+.pair .side + .side { border-left: 1px dashed var(--rule-strong); }
+.pair .side p { margin: 10px 0 0; color: var(--ink-2); font-size: 14px; }
+.pair .side .hbar { height: 30px; margin-top: 6px; }
+.pair .who .linkbtn { justify-self: start; margin-top: 6px; font-size: 13px; }
+.pair.dim { opacity: .3; }
+
+/* Metodo */
+.method { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; }
+.method p { max-width: 66ch; color: var(--ink-2); }
+.method h3 { font-family: var(--f-display); font-weight: 400; font-size: 21px; margin: 26px 0 6px; }
+.method h3:first-child { margin-top: 0; }
+dl.gloss { margin: 0; display: grid; gap: 14px; }
+dl.gloss dt { font-family: var(--f-display); font-style: italic; font-size: 18px; }
+dl.gloss dd { margin: 2px 0 0; color: var(--ink-2); font-size: 14px; }
+.credit { border-top: 1px solid var(--rule); margin-top: 28px; padding-top: 14px; color: var(--ink-3); font-size: 13px; }
+
+/* Scheda brand (pannello) */
+.scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.scrim.on { opacity: 1; pointer-events: auto; }
+aside.panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: var(--surface); z-index: 50; box-shadow: var(--shadow); transform: translateX(104%); transition: transform .28s ease; overflow-y: auto; padding: calc(env(safe-area-inset-top, 0px) + 20px) 28px calc(env(safe-area-inset-bottom, 0px) + 40px); }
+aside.panel.on { transform: none; }
+.panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.panel h2 { font-size: clamp(32px, 5vw, 44px); margin: 4px 0 4px; }
+.close { border: 1px solid var(--rule-strong); background: transparent; width: 36px; height: 36px; cursor: pointer; font-size: 20px; line-height: 1; flex: none; }
+.close:hover { border-color: var(--ink); }
+.panel .pos { color: var(--ink-2); margin: 8px 0 18px; }
+.pal-block { display: grid; gap: 8px; margin-bottom: 20px; }
+.pal-block .hbar { height: 40px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.sw { display: inline-flex; align-items: center; gap: 5px; font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-2); }
+.sw i { width: 10px; height: 10px; display: inline-block; border: 1px solid var(--rule-strong); }
+.switch { display: inline-flex; border: 1px solid var(--rule-strong); }
+.switch button { border: 0; background: transparent; padding: 4px 12px; cursor: pointer; font-size: 13px; color: var(--ink-2); }
+.switch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.codes-list { display: grid; gap: 0; border-top: 1px solid var(--rule); margin: 0; }
+.codes-list > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.codes-list dt { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); padding-top: 2px; }
+.codes-list dd { margin: 0; font-size: 14.5px; }
+blockquote.key { margin: 22px 0; padding: 0 0 0 18px; border-left: 2px solid var(--accent); font-family: var(--f-display); font-style: italic; font-size: 20px; line-height: 1.35; text-wrap: pretty; }
+blockquote.key cite { display: block; margin-top: 8px; font-family: var(--f-mono); font-style: normal; font-size: 11.5px; color: var(--ink-3); }
+.lg-note { background: var(--accent-soft); padding: 12px 14px; font-size: 14px; margin-bottom: 20px; }
+.lg-note b { font-weight: 600; }
+.near { display: flex; flex-wrap: wrap; gap: 6px; }
+.near button { border: 1px solid var(--rule-strong); background: transparent; padding: 4px 10px; cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.near button:hover { border-color: var(--ink); }
+.feed-fig { margin: 0; display: grid; gap: 6px; }
+.feed-fig img { width: 100%; max-width: 340px; height: auto; display: block; border: 1px solid var(--rule); background: var(--rule); }
+.feed-fig.small { margin-top: 12px; }
+.feed-fig.small img { max-width: 240px; }
+.feed-fig figcaption { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-3); }
+.feed-fig figcaption i { font-family: var(--f-body); }
+.feed { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; max-width: 300px; }
+.feed span { aspect-ratio: 3 / 4; display: grid; place-items: center; }
+.feed svg { width: 46%; height: auto; }
+.feed-block { display: grid; gap: 10px; margin-bottom: 22px; }
+.feed-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--ink-2); }
+.feed-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.feed-legend svg { width: 16px; height: 16px; }
+.feed-note { font-size: 12.5px; color: var(--ink-3); margin: 0; }
+.pair .feed { margin-top: 12px; max-width: 220px; }
+
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .side-col { position: static; padding-top: 18px; border-bottom: 1px solid var(--rule); padding-bottom: 18px; }
+  .codes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; }
+  .codes-foot { grid-column: 1 / -1; }
+  .method { grid-template-columns: minmax(0, 1fr); }
+  .pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .pair .who { grid-column: 1 / -1; border-right: 0; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .pair .side + .side { border-left: 1px dashed var(--rule-strong); }
+}
+@media (max-width: 640px) {
+  .codes-toggle { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; border: 1px solid var(--rule-strong); background: var(--surface); padding: 8px 14px; cursor: pointer; font-weight: 500; }
+  .codes { grid-template-columns: minmax(0, 1fr); margin-top: 14px; }
+  .codes.collapsed fieldset { display: none; }
+  .codes-toggle { margin-top: 0; }
+  nav.views { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  nav.views a { white-space: nowrap; }
+  .legend-areas { margin-left: 0; }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .pair .side + .side { border-left: 0; border-top: 1px dashed var(--rule-strong); }
+  aside.panel { padding-inline: 18px; }
+  .codes-list > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  nav.views a { padding: 10px 10px 11px; }
+}
+/* Ballet: calligrafico, in minuscolo, senza corsivo finto e con più interlinea */
+h1, h2, .card h3, .pair .who h3, .method h3, dl.gloss dt, blockquote.key, #map .quad { font-style: normal; font-weight: 400; font-synthesis: none; }
+h1 { line-height: 1.2; font-size: clamp(44px, 7.5vw, 84px); }
+h1 em { font-style: normal; }
+h2 { line-height: 1.3; font-size: clamp(30px, 3.8vw, 42px); }
+.card h3, .pair .who h3 { font-size: 26px; line-height: 1.3; }
+.method h3 { font-size: 25px; }
+dl.gloss dt { font-size: 22px; }
+blockquote.key { font-size: 24px; line-height: 1.45; }
+#map .quad { font-size: 20px; }
+/* In Helvetica: angoli della mappa, nomi dei brand, citazioni, titoletti del metodo */
+#map .quad, .card h3, .pair .who h3, .panel h2, blockquote.key, .method h3, dl.gloss dt { font-family: var(--f-body); }
+dl.gloss dt { font-size: 15px; font-weight: 600; font-style: normal; }
+#map .quad { font-size: 13px; font-weight: 500; fill: var(--ink-3); letter-spacing: .01em; }
+.card h3, .pair .who h3 { font-size: 19px; font-weight: 600; line-height: 1.2; letter-spacing: -.01em; }
+.panel h2 { font-size: clamp(28px, 4.5vw, 38px); font-weight: 600; line-height: 1.1; letter-spacing: -.02em; }
+blockquote.key { font-size: 17px; line-height: 1.5; font-style: normal; }
+.method h3 { font-size: 15px; font-weight: 600; letter-spacing: 0; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="frame-title"><span class="c3"></span><span class="c4"></span>
+      <div class="eyebrow">Framing Beauty · atlante</div>
+      <h1>Skin Code Branding</h1>
+    </div>
+    <p class="lede">Come 14 brand beauty asiatici e occidentali raccontano pelle, corpo e prodotto su Instagram. Tutti convergono sullo stesso standard di pelle giovane, liscia e luminosa, ma lo incorniciano in modi diversi.</p>
+  </header>
+
+  <nav class="views" aria-label="Sezioni dell'atlante">
+    <a href="#mappa" data-view="mappa">Mappa</a>
+    <a href="#brand" data-view="brand">Brand <span class="count">14</span></a>
+    <a href="#confronto" data-view="confronto">Locale / globale <span class="count">7</span></a>
+    <a href="#metodo" data-view="metodo">Metodo</a>
+  </nav>
+
+  <div class="layout" id="layout">
+  <div class="side-col" id="sideCol">
+  <button class="codes-toggle" id="codesToggle" type="button" aria-expanded="false" aria-controls="codes">Filtra per codici <span id="toggleCount" class="mono"></span></button>
+  <form class="codes collapsed" id="codes" aria-label="Filtri per codice">
+    <fieldset><legend class="eyebrow">Palette</legend><div class="chips" data-key="palette"></div></fieldset>
+    <fieldset><legend class="eyebrow">Corpo</legend><div class="chips" data-key="corpo"></div></fieldset>
+    <fieldset><legend class="eyebrow">Prodotto</legend><div class="chips" data-key="prodotto"></div></fieldset>
+    <fieldset><legend class="eyebrow">Tone of voice</legend><div class="chips" data-key="tono"></div></fieldset>
+    <div class="codes-foot">
+      <div class="row"><span id="matchCount" aria-live="polite">14 brand su 14</span>
+      <button type="button" class="linkbtn" id="resetFilters" hidden>Azzera i filtri</button></div>
+      <div class="legend-areas">
+        <span class="area-key"><i class="shape k"></i>K-beauty</span>
+        <span class="area-key"><i class="shape j"></i>J-beauty</span>
+        <span class="area-key"><i class="shape w"></i>Occidentali</span>
+      </div>
+    </div>
+  </form>
+  </div>
+  <main style="min-width:0">
+
+  <section class="view" id="v-mappa" aria-labelledby="h-mappa">
+    <h2 id="h-mappa">Lo stesso canone, quattro modi di raccontarlo</h2>
+    <p class="view-intro">Ogni cerchio è un brand; il grigio indica l'area culturale, dal più scuro (K-beauty) al più chiaro (occidentali). In orizzontale il modo di raccontare il prodotto, in verticale quanto corpo entra nell'inquadratura. Tocca un brand per aprire la scheda.</p>
+    <div class="map-box" id="mapBox">
+      <svg id="map" role="img" aria-label="Mappa dei 14 brand: narrazione del prodotto in orizzontale, rappresentazione del corpo in verticale"></svg>
+      <div class="tip" id="tip"></div>
+    </div>
+    <p class="map-note">Posizioni qualitative, dalla lettura interpretativa della tesi (cap. 3.3). Le palette estratte dai feed sono nelle schede e nell'indice.</p>
+  </section>
+
+  <section class="view" id="v-brand" aria-labelledby="h-brand" hidden>
+    <h2 id="h-brand">I 14 brand</h2>
+    <p class="view-intro">Raggruppati per area culturale. La barra verticale è la palette del feed, con le proporzioni dei colori.</p>
+    <div class="grid-brands" id="grid"></div>
+  </section>
+
+  <section class="view" id="v-confronto" aria-labelledby="h-confronto" hidden>
+    <h2 id="h-confronto">Stesso brand, due feed</h2>
+    <p class="view-intro">Sette brand hanno un profilo locale e uno globale. I valori restano gli stessi; cambia la messa in scena. Nei feed locali prevalgono registri rituali, informativi o istituzionali, in quelli globali lifestyle ed emozione.</p>
+    <div id="pairsLegend" style="margin-bottom:16px"></div>
+    <div class="pairs" id="pairs"></div>
+  </section>
+
+  <section class="view" id="v-metodo" aria-labelledby="h-metodo" hidden>
+    <h2 id="h-metodo">Come leggere l'atlante</h2>
+    <div class="method">
+      <div>
+        <h3>Da dove viene</h3>
+        <p>L'atlante traduce la tesi di laurea magistrale <i>Framing Beauty. Estetiche della bellezza nei brand beauty tra Asia e Occidente</i> (Design della Comunicazione, Politecnico di Milano, a.a. 2024/2025). La tesi analizza come i brand cosmetici costruiscono la bellezza nella comunicazione interculturale, partendo dall'idea che la bellezza sia una costruzione culturale e non un valore universale.</p>
+        <h3>Il corpus</h3>
+        <p>Quattordici brand: K-beauty (Laneige, Innisfree, COSRX, Anua, Beauty of Joseon), J-beauty (Tatcha, Shiseido) e occidentali, sia heritage (Clinique) sia digital-native (The Ordinary, Glossier, Rhode, Refy, EspressOh, Nabla). Sono stati scelti per visibilità digitale, coerenza del feed, riconoscibilità dell'identità visiva e diffusione internazionale.</p>
+        <h3>Cosa si osserva</h3>
+        <p>Solo Instagram, per lavorare su un ambiente comune a tutti: post del feed e reel. Per ogni brand si leggono palette, composizione, presenza del corpo, rappresentazione della pelle, rapporto tra prodotto e soggetto, lessico delle caption, ruolo dei creator e qualità dell'engagement.</p>
+        <h3>I due assi della mappa</h3>
+        <p>In orizzontale, i tre registri con cui viene raccontato il prodotto (efficacia tecnica, cura quotidiana, rito) e, per il make-up, l'espressione. In verticale, il corpo: assente o ridotto a frammenti dimostrativi in basso, presente, vissuto o espressivo in alto. Le posizioni sono interpretative, non misure.</p>
+        <h3>Limiti</h3>
+        <p>Una sola piattaforma, nessuna indagine sulla ricezione del pubblico, un corpus di brand affermati. Oriente e Occidente sono cornici di lettura, non blocchi omogenei. I feed cambiano: le osservazioni si riferiscono al periodo della ricerca.</p>
+      </div>
+      <div>
+        <h3>Glossario</h3>
+        <dl class="gloss">
+          <dt>Good skin</dt><dd>Il canone condiviso: pelle giovane, liscia, luminosa e controllata. È il denominatore comune a brand, culture e posizionamenti diversi.</dd>
+          <dt>Glocalizzazione</dt><dd>Standard globali adattati e riscritti nei contesti locali. Si vede bene nel confronto tra feed locali e globali dello stesso brand.</dd>
+          <dt>Corpo frammentato</dt><dd>Guance, labbra, mani o porzioni di pelle usate come superficie per dimostrare il prodotto, al posto della persona intera.</dd>
+          <dt>Naturalezza controllata</dt><dd>La spontaneità costruita dei brand digital-native: pelle "reale" e lucida, ma su corpi giovani e normati.</dd>
+          <dt>Normatività invisibile</dt><dd>Le retoriche di empowerment, scelta e cura di sé che spostano sulla persona la responsabilità di adeguarsi.</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="credit" id="creditLine">Ricerca e progetto: Beatrice Tronconi · Relatrice: Francesca Piredda · Politecnico di Milano, Scuola del Design. Le schede sintetizzano il capitolo 3 della tesi; le citazioni sono tratte dal testo. Le immagini dei feed sono riprodotte dalla tesi a fini di studio e analisi critica, con l'indicazione dell'account di origine; i contenuti appartengono ai rispettivi brand.</p>
+  </section>
+  </main>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pTitle" tabindex="-1"></aside>
+
+<script>
+const PAL = {"laneige":[[["#dbd7d7",0.333],["#b86570",0.275],["#b79590",0.187],["#a9c4e4",0.068],["#3a2f30",0.046],["#561d23",0.029],["#a73429",0.02],["#776c40",0.018],["#d4a683",0.015],["#6d3e28",0.009]],[["#c2bab6",0.453],["#ad7b6a",0.269],["#493e3a",0.191],["#8ba3b4",0.027],["#9e4547",0.027],["#6185b3",0.016],["#e7bc7e",0.011],["#ba3c46",0.007]]],"innisfree":[[["#cfcbc6",0.42],["#3f4f46",0.226],["#75ad88",0.091],["#e0bc86",0.069],["#925f3f",0.069],["#3faf6e",0.06],["#ea7e43",0.031],["#991c15",0.027],["#147697",0.009]],[["#b0a9a1",0.619],["#43352d",0.135],["#d2947d",0.105],["#58b48d",0.083],["#3eaf72",0.022],["#295c4c",0.015],["#5daabf",0.009],["#d66c71",0.007],["#47af5e",0.007]]],"cosrx":[[["#dcd8d9",0.699],["#504845",0.201],["#c8a78c",0.035],["#a74851",0.017],["#d3b054",0.015],["#a3281c",0.011],["#a4b8e0",0.009],["#daa4c1",0.007],["#f5d83d",0.007]],[["#d8cdd1",0.528],["#907b68",0.172],["#413530",0.107],["#d8b18f",0.083],["#e99fc5",0.063],["#6378ae",0.017],["#a85356",0.011],["#eda369",0.011],["#a33728",0.007]]],"tatcha":[[["#dddada",0.475],["#a87e65",0.126],["#c1b6d4",0.126],["#766d84",0.078],["#302d2b",0.063],["#7f70ac",0.052],["#e1d1b0",0.048],["#cdab61",0.02],["#794f99",0.011]],[["#d7d7d7",0.528],["#b38a6e",0.172],["#69a4ac",0.107],["#9499a8",0.083],["#3f3a34",0.063],["#6378ae",0.017],["#87638c",0.011],["#382942",0.011],["#d8c790",0.007]]],"shiseido":[[["#e4dad8",0.561],["#281f1c",0.132],["#70665f",0.114],["#c05f67",0.061],["#ae3329",0.061],["#c0955e",0.042],["#60261c",0.02],["#ecd13b",0.009]],[["#c1af9d",0.702],["#27231e",0.202],["#8f2622",0.037],["#9f7c38",0.018],["#582822",0.015],["#9e5028",0.011],["#625b76",0.009],["#c92828",0.007]]],"joseon":[[["#e4e0dd",0.401],["#baa395",0.383],["#574e3e",0.133],["#965b55",0.026],["#bc5564",0.017],["#d3a976",0.015],["#8f9c9e",0.009],["#89804f",0.009],["#75b0a2",0.007]]],"anua":[[["#dfe3e3",0.444],["#bea693",0.163],["#768591",0.133],["#8abab9",0.105],["#443a31",0.063],["#cbdbba",0.039],["#f3d4e7",0.024],["#884426",0.015],["#a02d21",0.013]],[["#e1eaeb",0.601],["#99928a",0.136],["#3b4037",0.096],["#86c2c0",0.086],["#3c4760",0.044],["#b28668",0.018],["#5d5d30",0.013],["#5aa6d4",0.007]]],"rhode":[[["#d2d3d6",0.234],["#28231d",0.21],["#968c86",0.178],["#6a4c3d",0.161],["#645d5a",0.095],["#b08772",0.074],["#d59d75",0.02],["#a0b9e0",0.011],["#8896ad",0.009],["#e3b8a7",0.009]]],"refy":[[["#d1cdc6",0.386],["#736154",0.206],["#322a27",0.141],["#a29685",0.124],["#c59775",0.08],["#916850",0.048],["#6d7250",0.009],["#e1c2ae",0.007]]],"clinique":[[["#b2a4a0",0.704],["#524c49",0.2],["#9792c2",0.037],["#78a17a",0.017],["#d99e6c",0.015],["#ab6c78",0.011],["#c9cfc3",0.009],["#726e86",0.007]],[["#dbd4d5",0.602],["#d5ad99",0.134],["#795443",0.099],["#c1c3a1",0.084],["#754293",0.044],["#d34a6e",0.018],["#25211d",0.013],["#9874aa",0.007]]],"ordinary":[[["#e9e9e8",0.704],["#9d9794",0.2],["#4e413d",0.037],["#dcb69c",0.017],["#997363",0.015],["#b27d59",0.011],["#e77693",0.009],["#264175",0.007]]],"espressoh":[[["#c19d89",0.386],["#938983",0.205],["#eae5e3",0.142],["#7a5542",0.124],["#3d2d28",0.081],["#dcaa7e",0.048],["#a95331",0.009],["#c37c74",0.007]]],"nabla":[[["#d3c8c3",0.388],["#9a6c55",0.208],["#d0a386",0.141],["#6f625c",0.125],["#2b261f",0.08],["#603e32",0.049],["#8b7046",0.009]]],"glossier":[[["#c3b9b4",0.444],["#5c4338",0.163],["#b58976",0.133],["#8e2b25",0.105],["#a06f78",0.063],["#4b1f21",0.039],["#839986",0.024],["#9a703d",0.015],["#4f4a6d",0.013]]]};
+
+const AREAS = { k: 'K-beauty', j: 'J-beauty', w: 'Occidentale' };
+const FILTERS = {
+  palette: ['Fredda e clinica', 'Pastello', 'Naturale', 'Neutra calda', 'Preziosa e contrastata'],
+  corpo: ['Assente', 'Frammentato', 'Simbolico', 'Quotidiano', 'Espressivo'],
+  prodotto: ['Efficacia tecnica', 'Cura quotidiana', 'Rito', 'Esperienza', 'Espressione'],
+  tono: ['Scientifico', 'Rassicurante', 'Autorevole', 'Confidenziale', 'Pragmatico', 'Ironico', 'Creativo']
+};
+
+const B = [
+ { id:'laneige', name:'Laneige', area:'k', sec:'3.2.1', pages:'122–129', handles:['@laneige-kr','@laneige-eu'], labels:['Corea','Europa'], x:.46, y:.22,
+   f:{palette:'Pastello', corpo:'Frammentato', prodotto:'Cura quotidiana', tono:'Rassicurante'},
+   pos:"Skincare coreana specializzata nell'idratazione, in fascia premium accessibile. Contenuti poco localizzati, pensati per essere desiderabili ovunque.",
+   pelle:"Liscia, uniforme, senza imperfezioni visibili; texture lucide e close-up.",
+   corpo:"Limitato e normato: volti giovani e femminili, spesso ridotti a labbra, pelle, mani.",
+   prodotto:"Isolato in contesti astratti (ghiaccio, acqua, superfici lucide). La skincare è un rituale quotidiano di mantenimento.",
+   tono:"Rassicurante, controllato, sensoriale, con lessico tecnico. Il brand parla da esperto, non da pari.",
+   community:"Engagement reattivo, fatto di like e commenti brevi; comunicazione top-down.",
+   quote:"il corpo non è tanto soggetto narrante quanto superficie simbolica su cui si iscrive l'efficacia del prodotto",
+   local:"Universo estetico chiuso: prodotto isolato, corpi giovani e frammentati, pelle perfetta come frutto di ritualità disciplinata.",
+   global:"Più eterogeneo e lifestyle: gifting, collaborazioni, corpo inserito in scene quotidiane, tono più morbido." },
+ { id:'innisfree', name:'Innisfree', area:'k', sec:'3.2.2', pages:'130–137', handles:['@innisfreeofficial','@innisfreeeurope'], labels:['Corea','Europa'], x:.68, y:.30,
+   f:{palette:'Naturale', corpo:'Frammentato', prodotto:'Cura quotidiana', tono:'Rassicurante'},
+   pos:"Skincare coreana fondata su naturalità e sostenibilità, costruita attorno all'isola di Jeju. Fascia accessibile, valore etico più che tecnologico.",
+   pelle:"Sana, luminosa, \"naturale\" anche con qualche imperfezione, ma sempre uniforme.",
+   corpo:"Moderato e normato: volti giovani, anche maschili, con make-up minimo o assente.",
+   prodotto:"Immerso in piante, foglie, acqua e materiali naturali. Routine delicata, lenta e progressiva.",
+   tono:"Calmo, rassicurante, pedagogico: natural, gentle, clean, pure.",
+   community:"Moderata ma costante, con domande su ingredienti e origine dei prodotti.",
+   quote:"La pelle è concepita come un organismo da ascoltare e proteggere, più che come una superficie da ottimizzare.",
+   local:"Grafico e simbolicamente denso: il volto dell'idol Kim Mingyu, verdi brillanti e saturi, la natura come codice stilizzato.",
+   global:"Eterogeneo e vissuto: persone comuni, routine domestiche, immagini vicine all'user-generated." },
+ { id:'cosrx', name:'COSRX', area:'k', sec:'3.2.3', pages:'138–145', handles:['@cosrx_korea','@cosrx'], labels:['Corea','Globale'], x:.33, y:.33,
+   f:{palette:'Fredda e clinica', corpo:'Frammentato', prodotto:'Efficacia tecnica', tono:'Scientifico'},
+   pos:"Skincare coreana orientata all'efficacia: trasparenza delle formule e soluzione di problemi cutanei specifici.",
+   pelle:"Superficie reale da trattare, dentro standard visivi ordinati e controllati.",
+   corpo:"Ridotto e secondario; volti neutri. Genere implicitamente neutro, ma diversità limitata.",
+   prodotto:"Strumento correttivo: ingredienti, percentuali, routine come sequenza logica di azioni.",
+   tono:"Diretto, informativo, tecnico. Il brand è un esperto razionale che dà soluzioni.",
+   community:"Interazione informativa: domande su ingredienti, compatibilità, routine.",
+   quote:"La pelle appare come un sistema da gestire e ottimizzare attraverso scelte informate.",
+   local:"Scientifico e didattico: testi in coreano, schemi d'uso, la pelle come luogo della prova.",
+   global:"Più lifestyle e giocoso: still life curati, contesti stagionali, la skincare come esperienza piacevole." },
+ { id:'anua', name:'Anua', area:'k', sec:'3.2.7', pages:'170–177', handles:['@anua-kr','@anua-global'], labels:['Corea','Globale'], x:.60, y:.08,
+   f:{palette:'Fredda e clinica', corpo:'Frammentato', prodotto:'Cura quotidiana', tono:'Rassicurante'},
+   pos:"Skincare coreana per pelli sensibili, costruita sul concetto di skin comfort. Posizionamento globale volutamente privo di riferimenti culturali marcati.",
+   pelle:"Uniforme, luminosa, \"tranquilla\".",
+   corpo:"Limitato e funzionale alla calma: volti giovani, senza make-up evidente.",
+   prodotto:"Isolato o accanto a pochi elementi naturali stilizzati. Routine semplice di stabilizzazione e protezione.",
+   tono:"Calmo ed empatico: gentle, calming, soothing, comfort.",
+   community:"Orientata al supporto: domande su compatibilità e reazioni.",
+   quote:"la bellezza è associata a uno stato di equilibrio e assenza di reazioni, più che a un ideale estetico spettacolare",
+   local:"Un testimonial maschile come figura centrale, azzurro e verde acqua, visual di campagna con badge promozionali.",
+   global:"Più lifestyle e ironico: corpi più vari, calendari e checklist, testi in inglese." },
+ { id:'joseon', name:'Beauty of Joseon', area:'k', sec:'3.2.6', pages:'164–169', handles:['@beautyofjoseon-official'], x:.88, y:.17,
+   f:{palette:'Neutra calda', corpo:'Frammentato', prodotto:'Rito', tono:'Autorevole'},
+   pos:"Skincare coreana che rilegge l'estetica e le pratiche di cura della dinastia Joseon in un linguaggio minimalista per il mercato globale.",
+   pelle:"Calma, uniforme e luminosa; reale, ma non idealizzata in modo eccessivo.",
+   corpo:"Limitato e simbolico: femminilità sobria e non sessualizzata.",
+   prodotto:"Oggetto essenziale, quasi museale, tra carta, ceramica e tessuti. Cura lenta e riflessiva.",
+   tono:"Misurato, narrativo, informativo; interpellazione indiretta e rispettosa.",
+   community:"Informativa: ingredienti, routine, compatibilità.",
+   quote:"il valore comunicativo non risiede nel singolo post, ma nella continuità dell'insieme" },
+ { id:'tatcha', name:'Tatcha', area:'j', sec:'3.2.4', pages:'146–153', handles:['@tatcha-jp','@tatcha'], labels:['Giappone','Globale'], x:.82, y:.37,
+   f:{palette:'Preziosa e contrastata', corpo:'Simbolico', prodotto:'Rito', tono:'Autorevole'},
+   pos:"Skincare premium che unisce tradizione giapponese, ritualità e lusso, ispirandosi ai rituali di bellezza delle geishe.",
+   pelle:"Luminosa, levigata e calma, dentro un contesto di armonia e controllo.",
+   corpo:"Selettivo e simbolico: femminilità elegante e composta.",
+   prodotto:"Oggetto prezioso. La skincare è un rituale lento, quasi meditativo.",
+   tono:"Sofisticato e aspirazionale: un narratore autorevole, non un tecnico.",
+   community:"Contenuta e top-down; consolida l'esclusività.",
+   quote:"La cultura giapponese viene utilizzata come risorsa narrativa ed estetica, resa consumabile in un contesto globale.",
+   local:"Rituale e simbolico: lilla, viola e oro, tempo sospeso, tradizione evocata in modo implicito.",
+   global:"Più narrativo e relazionale: gifting, collaborazioni, palette più varia, volti come soggetti attivi." },
+ { id:'shiseido', name:'Shiseido', area:'j', sec:'3.2.5', pages:'154–163', handles:['@shiseido-japan','@shiseido'], labels:['Giappone','Globale'], x:.93, y:.48,
+   f:{palette:'Preziosa e contrastata', corpo:'Simbolico', prodotto:'Rito', tono:'Autorevole'},
+   pos:"Brand storico e istituzionale: sintesi di tradizione giapponese, innovazione scientifica e universalismo estetico.",
+   pelle:"Levigata e luminosa, spazio di forza interiore e vitalità.",
+   corpo:"Più vario di altri brand per volti, etnie e talvolta età, ma entro canoni elevati.",
+   prodotto:"Accanto al volto o al corpo, tra tecnologia, moda e arte. La cura come investimento di lungo periodo.",
+   tono:"Autorevole, sofisticato, istituzionale.",
+   community:"Misurata e top-down.",
+   quote:"una bellezza che si presenta come universale e inclusiva, ma che resta ancorata a standard elevati di controllo estetico e performatività",
+   local:"Istituzionale e tecnico: prodotto isolato, rosso, nero, bianco e oro, testi in giapponese.",
+   global:"Emotivo e cinematografico: Anne Hathaway come volto, l'età riletta come \"Freedom from Age\"." },
+ { id:'clinique', name:'Clinique', area:'w', sub:'heritage', sec:'3.2.10', pages:'190–197', handles:['@cliniquejp','@clinique'], labels:['Giappone','Globale'], x:.17, y:.25,
+   f:{palette:'Fredda e clinica', corpo:'Assente', prodotto:'Efficacia tecnica', tono:'Scientifico'},
+   pos:"Skincare e make-up di matrice dermatologica: scientificità, sicurezza, affidabilità clinica.",
+   pelle:"Levigata, sana, senza imperfezioni evidenti: normalità più che aspirazione.",
+   corpo:"Neutralità relativa; più varietà di età ed etnie dei digital-native, ma controllata.",
+   prodotto:"Al centro, su superfici neutre e luce uniforme. Routine codificate e replicabili.",
+   tono:"Sobrio, informativo, autorevole; impersonale e istituzionale.",
+   community:"Stabile ma contenuta: domande su uso e sicurezza.",
+   quote:"la bellezza è associata a uno stato di funzionamento corretto piuttosto che a un ideale estetico trasformativo",
+   local:"Ordinato e didascalico: schede visive, step-by-step, il corpo come superficie dimostrativa.",
+   global:"Più narrativo e festivo: sorrisi, socialità, maggiore diversità di volti e carnagioni." },
+ { id:'ordinary', name:'The Ordinary', area:'w', sub:'digital-native', sec:'3.2.11', pages:'198–203', handles:['@theordinary'], x:.10, y:.14,
+   f:{palette:'Fredda e clinica', corpo:'Assente', prodotto:'Efficacia tecnica', tono:'Scientifico'},
+   pos:"Skincare della trasparenza: prezzi bassi, formule semplici, una comunicazione che rifiuta le retoriche aspirazionali.",
+   pelle:"Superficie tecnica su cui agiscono gli attivi; né spettacolarizzata né idealizzata.",
+   corpo:"Quasi assente; quando c'è è frammentato e funzionale (before/after, close-up).",
+   prodotto:"Flaconi standardizzati su fondo bianco, come campioni da osservare.",
+   tono:"Diretto, tecnico, dichiaratamente anti-emotivo.",
+   community:"Cognitiva: domande su ingredienti e modalità d'uso.",
+   quote:"l'assenza di corpi rende invisibili differenze di età, etnia e genere" },
+ { id:'refy', name:'Refy', area:'w', sub:'digital-native', sec:'3.2.9', pages:'184–189', handles:['@refybeauty'], x:.35, y:.70,
+   f:{palette:'Neutra calda', corpo:'Quotidiano', prodotto:'Esperienza', tono:'Pragmatico'},
+   pos:"Make-up minimal come estensione della skincare, estetica urbana e sopracciglia come segno identitario.",
+   pelle:"Uniforme e luminosa, ma non iper-perfetta: bellezza effortless.",
+   corpo:"Femminile e giovane: volto, sopracciglia, occhi. Postura apparentemente gender-neutral.",
+   prodotto:"Spesso decentrato, ai margini dell'inquadratura, dentro scene domestiche.",
+   tono:"Diretto e pragmatico; caption brevi in registro lifestyle.",
+   community:"Buona e stabile, sostenuta da tutorial.",
+   quote:"il beige si impone come colore dominante e come vero marcatore identitario del brand" },
+ { id:'glossier', name:'Glossier', area:'w', sub:'digital-native', sec:'3.2.14', pages:'216–221', handles:['@glossier'], x:.57, y:.62,
+   f:{palette:'Pastello', corpo:'Quotidiano', prodotto:'Esperienza', tono:'Confidenziale'},
+   pos:"Brand digital-native nato dal blog Into The Gloss, costruito sulla relazione diretta con la community.",
+   pelle:"Lucida, reale, a volte imperfetta; make-up minimo.",
+   corpo:"Centrale e più vario di altri brand, ma giovane, magro, normcore.",
+   prodotto:"Mai protagonista assoluto: tra lenzuola, bagni vissuti, borse aperte.",
+   tono:"Informale e conversazionale: il brand parla come un'amica.",
+   community:"Alta e relazionale; utenti e influencer si confondono.",
+   quote:"un'estetica che sembra sempre \"abitata\", mai messa in scena" },
+ { id:'rhode', name:'Rhode', area:'w', sub:'digital-native', sec:'3.2.8', pages:'178–183', handles:['@rhode'], x:.65, y:.74,
+   f:{palette:'Neutra calda', corpo:'Quotidiano', prodotto:'Esperienza', tono:'Confidenziale'},
+   pos:"Brand skin-first di Hailey Bieber: estetica minimalista e celebrity branding.",
+   pelle:"Viva, lucida, arrossata, talvolta imperfetta: bellezza quotidiana e raggiungibile.",
+   corpo:"Centrale ma frammentato e controllato; volti giovani e rilassati.",
+   prodotto:"Dentro scene di vita: coperte, tazze, camini, interni domestici.",
+   tono:"Intimo, informale, confidenziale: un \"tu\" implicito.",
+   community:"Alta e legata alla fondatrice; desiderio e identificazione.",
+   quote:"spostando l'attenzione dal \"cosa fa\" al \"come ti fa sentire\"" },
+ { id:'espressoh', name:'EspressOh', area:'w', sub:'digital-native', sec:'3.2.12', pages:'204–209', handles:['@espressoh'], x:.78, y:.82, lab:'left',
+   f:{palette:'Neutra calda', corpo:'Espressivo', prodotto:'Espressione', tono:'Ironico'},
+   pos:"Make-up italiano pop, inclusivo e ironico, che usa l'italianità come valore narrativo.",
+   pelle:"Naturale, con texture visibili e imperfezioni non del tutto cancellate.",
+   corpo:"Più vario e meno normato; volto ravvicinato, genere trattato in modo fluido e ironico.",
+   prodotto:"In scene d'uso: borse aperte, tavoli disordinati, tazze di caffè.",
+   tono:"Informale, ironico, colloquiale: il brand parla come un pari.",
+   community:"Vivace e partecipativa, meno top-down di altri brand.",
+   quote:"il brand si posiziona come compagno di routine più che come oggetto di desiderio distante" },
+ { id:'nabla', name:'Nabla', area:'w', sub:'digital-native', sec:'3.2.13', pages:'210–215', handles:['@nablacosmetics'], x:.91, y:.90, lab:'left',
+   f:{palette:'Neutra calda', corpo:'Espressivo', prodotto:'Espressione', tono:'Creativo'},
+   pos:"Make-up italiano orientato a creatività, sperimentazione artistica ed espressione individuale.",
+   pelle:"Levigata, luminosa, scolpita.",
+   corpo:"Superficie espressiva: volti androgini e look non convenzionali, ma corpi giovani.",
+   prodotto:"In composizioni scenografiche, tra le mani o sulle labbra.",
+   tono:"Creativo e ispirazionale: il brand come facilitatore creativo.",
+   community:"Apprezzamento estetico per look e tecniche.",
+   quote:"il volto diventa tela e il prodotto strumento creativo" }
+];
+const ORDER = ['k','j','w'];
+const FEEDS = {"laneige": ["PSFPVPSPF", "LPVLTPLVL"], "innisfree": ["VPTPVPTPV", "LVPLLVPLV"], "cosrx": ["TPSTFPTSP", "PLPVPLPLP"], "anua": ["VPTPVPTPV", "FLTPFLTLP"], "joseon": ["PSPVPSPLP"], "tatcha": ["PSPSPFPSP", "VPLPVLPVL"], "shiseido": ["PTPFPTPPF", "VPVLVPVPV"], "clinique": ["PTPTFPTPP", "VLPVLPVLV"], "ordinary": ["PPTSPFPTP"], "refy": ["LVLFLVLLF"], "glossier": ["VLVLSVLVL"], "rhode": ["VSLFVLSVL"], "espressoh": ["VLFLVLFVL"], "nabla": ["FVFVPFVFV"]};
+const IMGS = {"laneige":[{"src":"assets/feeds/laneige-kr.jpg","page":126,"w":540,"h":967},{"src":"assets/feeds/laneige-eu.jpg","page":127,"w":540,"h":967}],"innisfree":[{"src":"assets/feeds/innisfree-kr.jpg","page":134,"w":540,"h":967},{"src":"assets/feeds/innisfree-eu.jpg","page":135,"w":540,"h":967}],"cosrx":[{"src":"assets/feeds/cosrx-kr.jpg","page":142,"w":540,"h":967},{"src":"assets/feeds/cosrx-global.jpg","page":143,"w":540,"h":975}],"tatcha":[{"src":"assets/feeds/tatcha-jp.jpg","page":150,"w":540,"h":967},{"src":"assets/feeds/tatcha-global.jpg","page":151,"w":540,"h":968}],"shiseido":[{"src":"assets/feeds/shiseido-jp.jpg","page":160,"w":540,"h":967},{"src":"assets/feeds/shiseido-global.jpg","page":161,"w":540,"h":968}],"joseon":[{"src":"assets/feeds/joseon.jpg","page":168,"w":540,"h":967}],"anua":[{"src":"assets/feeds/anua-kr.jpg","page":174,"w":540,"h":967},{"src":"assets/feeds/anua-global.jpg","page":175,"w":540,"h":975}],"rhode":[{"src":"assets/feeds/rhode.jpg","page":182,"w":540,"h":967}],"refy":[{"src":"assets/feeds/refy.jpg","page":188,"w":540,"h":967}],"clinique":[{"src":"assets/feeds/clinique-jp.jpg","page":194,"w":540,"h":967},{"src":"assets/feeds/clinique-global.jpg","page":195,"w":540,"h":967}],"ordinary":[{"src":"assets/feeds/ordinary.jpg","page":202,"w":540,"h":967}],"espressoh":[{"src":"assets/feeds/espressoh.jpg","page":208,"w":540,"h":967}],"nabla":[{"src":"assets/feeds/nabla.jpg","page":214,"w":540,"h":967}],"glossier":[{"src":"assets/feeds/glossier.jpg","page":220,"w":540,"h":967}]};
+B.forEach(b => { b.pal = PAL[b.id]; b.feed = FEEDS[b.id]; b.img = IMGS[b.id]; });
+
+/* Stato */
+const state = { filters: { palette: new Set(), corpo: new Set(), prodotto: new Set(), tono: new Set() }, view: 'mappa', open: null, side: {} };
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mainPal = b => b.pal[b.pal.length - 1];
+const matches = b => Object.entries(state.filters).every(([k, set]) => set.size === 0 || set.has(b.f[k]));
+const shapeFor = a => `<i class="shape ${a}" aria-hidden="true"></i>`;
+const areaLabel = b => b.area === 'w' ? `Occidentale ${b.sub}` : AREAS[b.area];
+const hbar = pal => `<div class="hbar" role="img" aria-label="Palette: ${pal.map(p => p[0]).join(', ')}">${pal.map(([c, w]) => `<i style="background:${c};flex:${w}"></i>`).join('')}</div>`;
+const vbar = pal => `<div class="vbar" aria-hidden="true">${pal.map(([c, w]) => `<i style="background:${c};flex:${w}"></i>`).join('')}</div>`;
+/* Feed schematico: 9 riquadri, colori dalla palette (in proporzione), segno = tipo di contenuto */
+const GLYPH = {
+  P: '<rect x="16" y="13" width="8" height="19" rx="2"/><rect x="17.5" y="8" width="5" height="5" rx="1"/>',
+  S: '<circle cx="14" cy="15" r="1.6"/><circle cx="24" cy="12" r="1.6"/><circle cx="20" cy="21" r="1.6"/><circle cx="12" cy="26" r="1.6"/><circle cx="27" cy="24" r="1.6"/><circle cx="21" cy="30" r="1.6"/>',
+  V: '<ellipse cx="20" cy="16" rx="6.5" ry="8"/><path d="M8 36c1.5-7 6.5-10 12-10s10.5 3 12 10"/>',
+  F: '<path d="M9 21c4-5 8-6 11-3.5 3-2.5 7-1.5 11 3.5-4 5-8 6.5-11 6.5S13 26 9 21z"/><path d="M9 21h22"/>',
+  L: '<path d="M5 29h30"/><rect x="11" y="19" width="7" height="10" rx="1"/><circle cx="27" cy="13" r="3.5"/>',
+  T: '<path d="M9 13h22M9 20h22M9 27h14"/>'
+};
+const GLYPH_NAMES = { P: 'Prodotto isolato', S: 'Close-up della pelle', V: 'Volto', F: 'Corpo frammentato', L: 'Scena lifestyle', T: 'Testo e grafica' };
+const FILLED = { P: true, S: true };
+function tileColors(pal) {
+  const raw = pal.map(([c, w]) => [c, w * 9]);
+  const n = raw.map(([c, v]) => [c, Math.floor(v), v - Math.floor(v)]);
+  let left = 9 - n.reduce((a, x) => a + x[1], 0);
+  [...n].sort((a, b) => b[2] - a[2]).forEach(x => { if (left > 0) { x[1]++; left--; } });
+  const list = [];
+  n.forEach(([c, k]) => { for (let i = 0; i < k; i++) list.push(c); });
+  const order = [0, 4, 8, 2, 6, 1, 5, 7, 3], out = new Array(9);
+  order.forEach((pos, i) => { out[pos] = list[i]; });
+  return out;
+}
+function inkFor(hex) {
+  const v = parseInt(hex.slice(1), 16), r = v >> 16 & 255, g = v >> 8 & 255, b = v & 255;
+  return (0.299 * r + 0.587 * g + 0.114 * b) > 150 ? '#1e1a1c' : '#fbf8f9';
+}
+function feedGrid(pal, seq, label) {
+  const cols = tileColors(pal);
+  return `<div class="feed" role="img" aria-label="Ricostruzione schematica del feed ${esc(label)}: ${[...seq].map(k => GLYPH_NAMES[k].toLowerCase()).join(', ')}">${[...seq].map((k, i) => {
+    const ink = inkFor(cols[i]);
+    return `<span style="background:${cols[i]}"><svg viewBox="0 0 40 40" aria-hidden="true" ${FILLED[k] ? `fill="${ink}" stroke="none"` : `fill="none" stroke="${ink}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"`}>${GLYPH[k]}</svg></span>`;
+  }).join('')}</div>`;
+}
+const feedLegend = () => `<div class="feed-legend">${Object.keys(GLYPH).map(k => `<span><svg viewBox="0 0 40 40" aria-hidden="true" ${FILLED[k] ? 'fill="currentColor" stroke="none"' : 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'}>${GLYPH[k]}</svg>${GLYPH_NAMES[k]}</span>`).join('')}</div>`;
+function feedFig(b, i, small) {
+  const im = b.img[i] || b.img[0], h = b.handles[i] || b.handles[0];
+  return `<figure class="feed-fig${small ? ' small' : ''}"><img src="${im.src}" width="${im.w}" height="${im.h}" loading="lazy" alt="Griglia del feed Instagram ${esc(h)}, come riportata nella tesi"><figcaption>${esc(h)} · <i>Framing Beauty</i>, p. ${im.page}</figcaption></figure>`;
+}
+const swatches = pal => `<div class="swatches">${pal.filter(p => p[1] >= .02).map(([c, w]) => `<span class="sw"><i style="background:${c}"></i>${c} · ${Math.round(w * 100)}%</span>`).join('')}</div>`;
+
+/* Filtri */
+function buildFilters() {
+  for (const [key, vals] of Object.entries(FILTERS)) {
+    const box = $(`.chips[data-key="${key}"]`);
+    box.innerHTML = vals.map(v => `<button type="button" class="chip" aria-pressed="false" data-key="${key}" data-val="${esc(v)}">${esc(v)}</button>`).join('');
+  }
+  $('#codes').addEventListener('click', e => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    const set = state.filters[btn.dataset.key];
+    const v = btn.dataset.val;
+    set.has(v) ? set.delete(v) : set.add(v);
+    btn.setAttribute('aria-pressed', set.has(v));
+    applyFilters();
+  });
+  $('#codes').addEventListener('submit', e => e.preventDefault());
+  $('#resetFilters').addEventListener('click', () => {
+    Object.values(state.filters).forEach(s => s.clear());
+    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+    applyFilters();
+  });
+  $('#codesToggle').addEventListener('click', () => {
+    const c = $('#codes');
+    const open = c.classList.toggle('collapsed') === false;
+    $('#codesToggle').setAttribute('aria-expanded', open);
+  });
+}
+function applyFilters() {
+  const n = B.filter(matches).length;
+  const active = Object.values(state.filters).reduce((a, s) => a + s.size, 0);
+  $('#matchCount').textContent = active ? `${n} brand su 14 corrispondono` : '14 brand su 14';
+  $('#toggleCount').textContent = active ? `· ${active} attivi` : '';
+  $('#resetFilters').hidden = !active;
+  document.querySelectorAll('[data-brand]').forEach(el => {
+    const b = B.find(x => x.id === el.dataset.brand);
+    el.classList.toggle('dim', !matches(b));
+  });
+  document.querySelectorAll('.pair').forEach(el => {
+    const b = B.find(x => x.id === el.dataset.pair);
+    el.classList.toggle('dim', !matches(b));
+  });
+}
+
+/* Mappa */
+const NS = 'http://www.w3.org/2000/svg';
+function drawMap() {
+  const svg = $('#map');
+  const W = Math.max(320, Math.round($('#mapBox').clientWidth));
+  const narrow = W < 640;
+  const H = narrow ? Math.round(W * 1.45) : Math.round(Math.min(Math.max(W * .58, 520), 700));
+  const m = narrow ? { l: 18, r: 18, t: 40, b: 56 } : { l: 64, r: 30, t: 44, b: 62 };
+  const pw = W - m.l - m.r, ph = H - m.t - m.b;
+  const X = v => m.l + v * pw, Y = v => m.t + (1 - v) * ph;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  let s = '';
+  s += `<rect class="frame" x="${m.l}" y="${m.t}" width="${pw}" height="${ph}"/>`;
+  s += `<line class="grid" x1="${X(.5)}" x2="${X(.5)}" y1="${m.t}" y2="${m.t + ph}" stroke-dasharray="3 5"/>`;
+  s += `<line class="grid" x1="${m.l}" x2="${m.l + pw}" y1="${Y(.5)}" y2="${Y(.5)}" stroke-dasharray="3 5"/>`;
+  const q = narrow ? 10 : 16;
+  const QN = narrow ? ['Ottimizzato', 'Vissuto', 'Dato tecnico', 'Rito di cura'] : ['Corpo ottimizzato', 'Corpo vissuto ed espressivo', 'Pelle come dato tecnico', 'Pelle come rito di cura'];
+  const qs = narrow ? ' style="font-size:12px"' : '';
+  s += `<text class="quad"${qs} x="${m.l + q}" y="${m.t + 22}">${QN[0]}</text>`;
+  s += `<text class="quad"${qs} x="${m.l + pw - q}" y="${m.t + 22}" text-anchor="end">${QN[1]}</text>`;
+  s += `<text class="quad"${qs} x="${m.l + q}" y="${m.t + ph - q}">${QN[2]}</text>`;
+  s += `<text class="quad"${qs} x="${m.l + pw - q}" y="${m.t + ph - q}" text-anchor="end">${QN[3]}</text>`;
+  // Assi
+  const ay = m.t + ph + 24;
+  s += `<text class="axis-label" x="${m.l}" y="${ay}">${narrow ? '← EFFICACIA' : '← EFFICACIA TECNICA'}</text>`;
+  s += `<text class="axis-label" x="${m.l + pw}" y="${ay}" text-anchor="end">${narrow ? 'RITO, ESPRESSIONE →' : 'CURA · RITO · ESPRESSIONE →'}</text>`;
+  s += `<text class="axis-name" x="${m.l + pw / 2}" y="${ay + 22}" text-anchor="middle">Narrazione del prodotto</text>`;
+  if (narrow) {
+    s += `<text class="axis-label" x="${m.l}" y="${m.t - 14}">↑ CORPO PRESENTE</text>`;
+    s += `<text class="axis-name" x="${m.l + pw}" y="${m.t - 14}" text-anchor="end">Rappresentazione del corpo</text>`;
+  } else {
+    s += `<text class="axis-label" x="${m.l - 14}" y="${m.t + 4}" text-anchor="end" transform="rotate(-90 ${m.l - 14} ${m.t + 4})">CORPO PRESENTE →</text>`;
+    s += `<text class="axis-label" x="${m.l - 14}" y="${m.t + ph}" transform="rotate(-90 ${m.l - 14} ${m.t + ph})">← CORPO ASSENTE</text>`;
+    s += `<text class="axis-name" x="${m.l - 36}" y="${m.t + ph / 2}" text-anchor="middle" transform="rotate(-90 ${m.l - 36} ${m.t + ph / 2})">Rappresentazione del corpo</text>`;
+  }
+  // Brand: cerchi con bordo sfumato, colore per area culturale
+  const R = narrow ? 11 : 15;
+  s += `<defs>${['k','j','w'].map(a => `<radialGradient id="soft-${a}"><stop offset="0" style="stop-color:var(--${a});stop-opacity:.95"/><stop offset=".45" style="stop-color:var(--${a});stop-opacity:.8"/><stop offset="1" style="stop-color:var(--${a});stop-opacity:0"/></radialGradient>`).join('')}</defs>`;
+  for (const b of B) {
+    const cx = X(b.x), cy = Y(b.y);
+    const side = (narrow && b.labN) || b.lab || (b.x < .8 ? 'right' : 'left');
+    const r = side === 'right', dir = r ? 1 : -1;
+    const tx = cx + dir * (R + 6);
+    const lab = `<text class="label" x="${tx}" y="${cy + 4.5}" text-anchor="${r ? 'start' : 'end'}">${esc(b.name)}</text>`;
+    const wHit = R * 2 + 16 + b.name.length * 8;
+    const hit = `<rect x="${r ? cx - R - 6 : cx + R + 6 - wHit}" y="${cy - R - 6}" width="${wHit}" height="${R * 2 + 12}" fill="transparent"/>`;
+    s += `<g class="brand" data-brand="${b.id}" tabindex="0" role="button" aria-label="${esc(b.name)}, ${areaLabel(b)}. Apri la scheda">
+      ${hit}<circle class="dot" cx="${cx}" cy="${cy}" r="${R}" fill="url(#soft-${b.area})"/>
+      <circle class="ring" cx="${cx}" cy="${cy}" r="${R + 3}"/>
+      ${lab}
+    </g>`;
+  }
+  svg.innerHTML = s;
+  svg.querySelectorAll('.brand').forEach(g => {
+    const b = B.find(x => x.id === g.dataset.brand);
+    g.addEventListener('click', () => openBrand(b.id));
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openBrand(b.id); } });
+    g.addEventListener('mouseenter', () => showTip(b, g));
+    g.addEventListener('focus', () => showTip(b, g));
+    g.addEventListener('mouseleave', hideTip);
+    g.addEventListener('blur', hideTip);
+  });
+  applyFilters();
+}
+function showTip(b, g) {
+  const tip = $('#tip'), box = $('#mapBox').getBoundingClientRect(), r = g.querySelector('.dot').getBoundingClientRect();
+  tip.innerHTML = `<b>${esc(b.name)}</b>${esc(b.f.prodotto)} · corpo ${esc(b.f.corpo.toLowerCase())}<br>${esc(b.f.tono)}`;
+  let left = r.left - box.left + r.width / 2;
+  left = Math.min(Math.max(left, 130), box.width - 130);
+  tip.style.left = left + 'px';
+  tip.style.top = (r.top - box.top) + 'px';
+  tip.classList.add('on');
+}
+function hideTip() { $('#tip').classList.remove('on'); }
+
+/* Indice */
+function drawGrid() {
+  let h = '';
+  for (const a of ORDER) {
+    const list = B.filter(b => b.area === a);
+    h += `<div class="group-title eyebrow">${shapeFor(a)}${a === 'w' ? 'Occidentali' : AREAS[a]} · ${list.length}</div>`;
+    for (const b of list) {
+      h += `<button type="button" class="card" data-brand="${b.id}" aria-label="${esc(b.name)}: apri la scheda">
+        ${vbar(mainPal(b))}
+        <div style="min-width:0">
+          <h3>${esc(b.name)}</h3>
+          <div class="meta">${areaLabel(b)}${b.handles.length > 1 ? ' · locale e globale' : ''}</div>
+          <div class="tags">${['palette','corpo','prodotto','tono'].map(k => `<span class="tag">${esc(b.f[k])}</span>`).join('')}</div>
+        </div>
+      </button>`;
+    }
+  }
+  $('#grid').innerHTML = h;
+  $('#grid').addEventListener('click', e => { const c = e.target.closest('.card'); if (c) openBrand(c.dataset.brand); });
+}
+
+/* Locale / globale */
+function drawPairs() {
+  $('#pairsLegend').innerHTML = '<p class="feed-note">Le griglie dei feed sono quelle riportate nella tesi, raccolte nel periodo della ricerca.</p>';
+  $('#pairs').innerHTML = B.filter(b => b.pal.length > 1).map(b => `
+    <article class="pair" data-pair="${b.id}">
+      <div class="who">
+        <span class="eyebrow">${shapeFor(b.area)} ${AREAS[b.area]}</span>
+        <h3>${esc(b.name)}</h3>
+        <button type="button" class="linkbtn" data-open="${b.id}">Apri la scheda</button>
+      </div>
+      <div class="side">
+        <div class="eyebrow">Locale · ${esc(b.labels[0])}</div>
+        <div class="mono" style="color:var(--ink-3)">${esc(b.handles[0])}</div>
+        ${hbar(b.pal[0])}
+        ${feedFig(b, 0, true)}
+        <p>${esc(b.local)}</p>
+      </div>
+      <div class="side">
+        <div class="eyebrow">Globale · ${esc(b.labels[1])}</div>
+        <div class="mono" style="color:var(--ink-3)">${esc(b.handles[1])}</div>
+        ${hbar(b.pal[1])}
+        ${feedFig(b, 1, true)}
+        <p>${esc(b.global)}</p>
+      </div>
+    </article>`).join('');
+  $('#pairs').addEventListener('click', e => { const t = e.target.closest('[data-open]'); if (t) openBrand(t.dataset.open); });
+}
+
+/* Scheda */
+let lastFocus = null;
+function nearest(b) {
+  return B.filter(x => x !== b).map(x => [x, Math.hypot(x.x - b.x, x.y - b.y)]).sort((a, c) => a[1] - c[1]).slice(0, 3).map(p => p[0]);
+}
+function renderPanel(b) {
+  const two = b.pal.length > 1;
+  const side = state.side[b.id] ?? (two ? 1 : 0);
+  const pal = b.pal[side];
+  const p = $('#panel');
+  p.innerHTML = `
+    <div class="panel-head">
+      <div>
+        <div class="eyebrow">${shapeFor(b.area)} ${areaLabel(b)} · tesi cap. ${b.sec}</div>
+        <h2 id="pTitle">${esc(b.name)}</h2>
+        <div class="mono" style="color:var(--ink-3)">${b.handles.map(esc).join('  ·  ')}</div>
+      </div>
+      <button type="button" class="close" id="closePanel" aria-label="Chiudi la scheda">×</button>
+    </div>
+    <p class="pos">${esc(b.pos)}</p>
+    <div class="pal-block">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <span class="eyebrow">Palette del feed${two ? '' : ` · ${esc(b.handles[0])}`}</span>
+        ${two ? `<div class="switch" role="group" aria-label="Scegli il feed">
+          <button type="button" data-side="0" aria-pressed="${side === 0}">Locale · ${esc(b.labels[0])}</button>
+          <button type="button" data-side="1" aria-pressed="${side === 1}">Globale</button></div>` : ''}
+      </div>
+      ${hbar(pal)}
+      ${swatches(pal)}
+    </div>
+    <div class="feed-block">
+      <span class="eyebrow">Feed Instagram${two ? ` · ${side === 0 ? 'locale' : 'globale'}` : ''}</span>
+      ${feedFig(b, side)}
+    </div>
+    ${two ? `<div class="lg-note"><b>${side === 0 ? 'Feed locale' : 'Feed globale'}.</b> ${esc(side === 0 ? b.local : b.global)}</div>` : ''}
+    <dl class="codes-list">
+      <div><dt>Pelle</dt><dd>${esc(b.pelle)}</dd></div>
+      <div><dt>Corpo</dt><dd>${esc(b.corpo)}</dd></div>
+      <div><dt>Prodotto</dt><dd>${esc(b.prodotto)}</dd></div>
+      <div><dt>Tone of voice</dt><dd>${esc(b.tono)}</dd></div>
+      <div><dt>Community</dt><dd>${esc(b.community)}</dd></div>
+    </dl>
+    <blockquote class="key">«${esc(b.quote)}»<cite>Framing Beauty, cap. ${b.sec}, pp. ${b.pages}</cite></blockquote>
+    <div class="eyebrow" style="margin-bottom:8px">Vicini sulla mappa</div>
+    <div class="near">${nearest(b).map(n => `<button type="button" data-open="${n.id}">${shapeFor(n.area)}${esc(n.name)}</button>`).join('')}</div>
+  `;
+  $('#closePanel').addEventListener('click', closeBrand);
+  p.querySelectorAll('[data-side]').forEach(btn => btn.addEventListener('click', () => { state.side[b.id] = +btn.dataset.side; renderPanel(b); p.querySelector(`[data-side="${btn.dataset.side}"]`).focus(); }));
+  p.querySelectorAll('.near [data-open]').forEach(btn => btn.addEventListener('click', () => openBrand(btn.dataset.open)));
+}
+function openBrand(id, fromHash) {
+  const b = B.find(x => x.id === id);
+  if (!b) return;
+  if (!state.open) lastFocus = document.activeElement;
+  state.open = id;
+  renderPanel(b);
+  $('#panel').classList.add('on');
+  $('#scrim').classList.add('on');
+  $('#panel').scrollTop = 0;
+  $('#panel').focus();
+  if (!fromHash) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+}
+function closeBrand() {
+  if (!state.open) return;
+  state.open = null;
+  $('#panel').classList.remove('on');
+  $('#scrim').classList.remove('on');
+  try { history.replaceState(null, '', '#' + state.view); } catch (e) {}
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+$('#scrim').addEventListener('click', closeBrand);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBrand(); });
+
+/* Viste */
+const VIEWS = ['mappa', 'brand', 'confronto', 'metodo'];
+function showView(v) {
+  state.view = v;
+  VIEWS.forEach(x => { $('#v-' + x).hidden = x !== v; });
+  document.querySelectorAll('nav.views a').forEach(a => { if (a.dataset.view === v) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  const showCodes = v !== 'metodo';
+  $('#sideCol').hidden = !showCodes;
+  $('#layout').classList.toggle('full', !showCodes);
+  if (v === 'mappa') drawMap();
+  try { localStorage.setItem('atlante-view', v); } catch (e) {}
+}
+function route() {
+  const h = (location.hash || '').slice(1);
+  if (VIEWS.includes(h)) { closeBrand(); showView(h); return; }
+  if (B.some(b => b.id === h)) { openBrand(h, true); return; }
+}
+document.querySelectorAll('nav.views a').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  closeBrand();
+  showView(a.dataset.view);
+  try { history.replaceState(null, '', '#' + a.dataset.view); } catch (err) {}
+}));
+window.addEventListener('hashchange', route);
+
+let rt;
+window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { if (state.view === 'mappa') drawMap(); }, 120); });
+
+buildFilters();
+drawGrid();
+drawPairs();
+let start = 'mappa';
+try { const saved = localStorage.getItem('atlante-view'); if (VIEWS.includes(saved)) start = saved; } catch (e) {}
+const h0 = (location.hash || '').slice(1);
+if (VIEWS.includes(h0)) start = h0;
+showView(start);
+if (B.some(b => b.id === h0)) openBrand(h0, true);
+</script>
+
+</body>
+</html>
