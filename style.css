@@ -59,6 +59,7 @@ img { display: block; max-width: 100%; height: auto; }
   background: #fff;
   border-top: var(--line);
 }
+.to-top { color: #000; text-decoration: none; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 
@@ -87,7 +88,6 @@ img { display: block; max-width: 100%; height: auto; }
   text-decoration: none;
   transition: background 0.1s, color 0.1s;
 }
-.index .c { grid-column: 1 / -1; }
 .index a:hover,
 .index a:focus-visible,
 .index a[aria-current="true"] {
@@ -194,4 +194,20 @@ main { min-width: 0; }
   .shot { width: 100%; }
   .shot:has(img.small) { width: min(100%, 360px); }
   .photo-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ KEYWORDS ON HOVER ============
+   Hovering a long text hides everything except the keywords,
+   which stay exactly where they are. On touch screens a tap toggles it. */
+.hl .kw { transition: color 0.15s; }
+.hl { transition: color 0.15s; }
+.hl.show-kw,
+.hl.show-kw a { color: transparent; text-decoration-color: transparent; }
+.hl.show-kw .kw,
+.hl.show-kw .kw a { color: #000; text-decoration-color: currentColor; }
+@media (hover: hover) {
+  .hl:hover,
+  .hl:hover a { color: transparent; text-decoration-color: transparent; }
+  .hl:hover .kw,
+  .hl:hover .kw a { color: #000; text-decoration-color: currentColor; }
 }

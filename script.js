@@ -25,3 +25,14 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('main section[id]').forEach(function (s) { observer.observe(s); });
 })();
+
+// Touch screens: tap a long text to show only its keywords, tap again to show it all.
+(function () {
+  if (window.matchMedia('(hover: hover)').matches) return;
+  document.querySelectorAll('.hl').forEach(function (p) {
+    p.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
+      p.classList.toggle('show-kw');
+    });
+  });
+})();
