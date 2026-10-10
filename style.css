@@ -211,3 +211,18 @@ main { min-width: 0; }
   .hl:hover .kw,
   .hl:hover .kw a { color: #000; text-decoration-color: currentColor; }
 }
+
+/* ============ GRID GALLERIES (desktop) ============
+   Two columns, every image at its own proportions.
+   On phones (max-width: 768px) galleries stay one image per row. */
+@media (min-width: 769px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .gallery .shot { width: 100%; }
+  .gallery .shot:has(img.small) { width: 100%; }
+  .gallery .shot img.small { width: 100%; }
+  .gallery .video { grid-column: 1 / -1; }
+}
