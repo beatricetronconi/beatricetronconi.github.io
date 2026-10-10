@@ -226,3 +226,11 @@ main { min-width: 0; }
   .gallery .shot img.small { width: 100%; }
   .gallery .video { grid-column: 1 / -1; }
 }
+
+/* ============ IMAGE CAPTIONS ============
+   The only exception to the single text size: captions on photos are smaller. */
+.shot figcaption {
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 3px 7px;
+}
