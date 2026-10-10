@@ -1,6 +1,6 @@
 # Skin Code Branding
 
-Atlante interattivo dei codici visivi di 14 brand beauty asiatici e occidentali su Instagram, sviluppato dalla tesi di laurea magistrale *Framing Beauty. Estetiche della bellezza nei brand beauty tra Asia e Occidente* (Design della Comunicazione, Politecnico di Milano, a.a. 2024/2025, relatrice Francesca Piredda).
+Modello interattivo dei codici visivi di 14 brand beauty asiatici e occidentali su Instagram, sviluppato dalla tesi di laurea magistrale *Framing Beauty. Estetiche della bellezza nei brand beauty tra Asia e Occidente* (Design della Comunicazione, Politecnico di Milano, a.a. 2024/2025, relatrice Francesca Piredda).
 
 Sezioni: mappa dei brand, schede, confronto tra feed locali e globali, metodo.
 
