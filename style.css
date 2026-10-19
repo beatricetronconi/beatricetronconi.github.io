@@ -135,9 +135,9 @@ main { min-width: 0; }
   /* full column width, but never taller than the screen */
   width: min(100%, calc((100vh - 3 * var(--bar-h) - 20px) * var(--r)));
 }
-.shot img { width: 100%; background: #ececec; }
-.shot:has(img.small) { width: min(100%, 360px); }
-.shot img.small { background: none; }
+.shot img, .shot video { display: block; width: 100%; height: auto; background: #ececec; }
+.shot:has(.small) { width: min(100%, 360px); }
+.shot .small { background: none; }
 .shot figcaption {
   position: absolute;
   top: 0;
@@ -192,7 +192,7 @@ main { min-width: 0; }
   .inner { grid-template-columns: 1fr; row-gap: 5px; }
   .entry { grid-template-columns: 1fr; }
   .shot { width: 100%; }
-  .shot:has(img.small) { width: min(100%, 360px); }
+  .shot:has(.small) { width: min(100%, 360px); }
   .photo-grid { grid-template-columns: 1fr; }
 }
 
@@ -222,8 +222,8 @@ main { min-width: 0; }
     align-items: start;
   }
   .gallery .shot { width: 100%; }
-  .gallery .shot:has(img.small) { width: 100%; }
-  .gallery .shot img.small { width: 100%; }
+  .gallery .shot:has(.small) { width: 100%; }
+  .gallery .shot .small { width: 100%; }
   .gallery .video { grid-column: 1 / -1; }
 }
 
@@ -237,8 +237,8 @@ main { min-width: 0; }
 
 /* ============ LIGHTBOX ============
    Click a photo: its gallery opens full screen and scrolls sideways. */
-main .shot img { cursor: zoom-in; }
-main .shot img:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
+main .shot img, main .shot video { cursor: zoom-in; }
+main .shot img:focus-visible, main .shot video:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
 
 html.lb-open, html.lb-open body { overflow: hidden; }
 
@@ -298,7 +298,7 @@ html.lb-open, html.lb-open body { overflow: hidden; }
   scroll-snap-stop: always;
   cursor: zoom-out;
 }
-.lb-slide img {
+.lb-slide img, .lb-slide video {
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -321,4 +321,92 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 @media (max-width: 768px) {
   .lb-slide { padding: var(--pad); }
   .lb-slide figcaption { left: var(--pad); bottom: var(--pad); }
+}
+
+/* ============ HOME REEL ============
+   One image per project scrolling sideways. Hover pauses it,
+   turns the image negative and shows the project name. Click opens the project. */
+.reel {
+  height: calc(100vh - 2 * var(--bar-h));
+  height: calc(100svh - 2 * var(--bar-h));
+  overflow: hidden;
+  border-bottom: var(--line);
+  display: flex;
+  align-items: center;
+}
+.reel-track {
+  display: flex;
+  width: max-content;
+  animation: reel 60s linear infinite;
+}
+.reel:hover .reel-track,
+.reel:focus-within .reel-track { animation-play-state: paused; }
+.reel-set { display: flex; gap: var(--pad); padding-right: var(--pad); }
+@keyframes reel {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.reel-item {
+  position: relative;
+  display: block;
+  height: calc(100vh - 2 * var(--bar-h) - 2 * var(--pad));
+  height: calc(100svh - 2 * var(--bar-h) - 2 * var(--pad));
+  text-decoration: none;
+  color: #000;
+}
+.reel-item img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  background: #ececec;
+  transition: filter 0.15s;
+}
+.reel-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  padding: 4px 9px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.reel-item:hover img,
+.reel-item:focus-visible img { filter: invert(1); }
+.reel-item:hover .reel-title,
+.reel-item:focus-visible .reel-title { opacity: 1; }
+.reel-item:focus-visible { outline: none; }
+
+/* without motion: a strip you scroll by hand */
+@media (prefers-reduced-motion: reduce) {
+  .reel { overflow-x: auto; }
+  .reel-track { animation: none; }
+  .reel-set[aria-hidden="true"] { display: none; }
+}
+
+/* phones: shorter strip, names always visible (no hover on touch screens) */
+@media (max-width: 768px) {
+  .reel { height: 60svh; }
+  .reel-item { height: calc(60svh - 2 * var(--pad)); }
+  .reel-track { animation-duration: 45s; }
+}
+@media (hover: none) {
+  .reel-title { opacity: 1; }
+}
+
+/* reel sits above the sections, next to the index; on phones it comes first */
+.layout {
+  grid-template-areas: "nav reel" "nav main";
+  grid-template-rows: auto 1fr;
+}
+.index { grid-area: nav; align-self: start; }
+.reel { grid-area: reel; min-width: 0; }
+.layout > main { grid-area: main; }
+@media (max-width: 768px) {
+  .layout { grid-template-areas: "reel" "nav" "main"; grid-template-rows: auto; }
 }

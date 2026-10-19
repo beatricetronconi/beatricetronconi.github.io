@@ -39,7 +39,7 @@
 
 // Lightbox: click a photo to open its gallery full screen, then scroll sideways.
 (function () {
-  var shots = document.querySelectorAll('main .shot img');
+  var shots = document.querySelectorAll('main .shot img, main .shot video');
   if (!shots.length) return;
 
   var box = document.createElement('div');
@@ -64,8 +64,21 @@
   function current() {
     return Math.round(track.scrollLeft / track.clientWidth);
   }
+  // swap in the high-resolution file for the photo on screen and its neighbours
+  function loadSharp(i) {
+    [i - 1, i, i + 1].forEach(function (k) {
+      var slide = track.children[k];
+      var im = slide && slide.querySelector('img[data-full]');
+      if (!im) return;
+      var hi = new Image();
+      hi.onload = function () { im.src = hi.src; };
+      hi.src = im.dataset.full;
+      im.removeAttribute('data-full');
+    });
+  }
   function updateCount() {
     count.textContent = (current() + 1) + ' / ' + total;
+    loadSharp(current());
   }
   function go(i) {
     i = Math.max(0, Math.min(total - 1, i));
@@ -75,15 +88,24 @@
   function open(img) {
     var gallery = img.closest('.gallery, .photo-grid');
     var section = img.closest('section');
-    var imgs = Array.prototype.slice.call(gallery.querySelectorAll('.shot img'));
+    var imgs = Array.prototype.slice.call(gallery.querySelectorAll('.shot img, .shot video'));
     total = imgs.length;
     track.innerHTML = '';
     imgs.forEach(function (im) {
       var fig = document.createElement('figure');
       fig.className = 'lb-slide';
-      var big = document.createElement('img');
-      big.src = im.currentSrc || im.src;
-      big.alt = im.alt;
+      var big;
+      if (im.tagName === 'VIDEO') {
+        big = im.cloneNode(true);
+        big.removeAttribute('class');
+        big.removeAttribute('tabindex');
+        big.muted = true;
+      } else {
+        big = document.createElement('img');
+        big.src = im.currentSrc || im.src;
+        if (im.dataset.full) big.dataset.full = im.dataset.full;
+        big.alt = im.alt;
+      }
       fig.appendChild(big);
       var cap = im.parentNode.querySelector('figcaption');
       if (cap) {
