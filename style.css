@@ -337,15 +337,12 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 .reel-track {
   display: flex;
   width: max-content;
-  animation: reel 60s linear infinite;
+  will-change: transform;
+  touch-action: pan-y;
 }
-.reel:hover .reel-track,
-.reel:focus-within .reel-track { animation-play-state: paused; }
+.reel { cursor: grab; user-select: none; -webkit-user-select: none; }
+.reel.dragging { cursor: grabbing; }
 .reel-set { display: flex; gap: var(--pad); padding-right: var(--pad); }
-@keyframes reel {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 
 .reel-item {
   position: relative;
@@ -384,16 +381,13 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 
 /* without motion: a strip you scroll by hand */
 @media (prefers-reduced-motion: reduce) {
-  .reel { overflow-x: auto; }
-  .reel-track { animation: none; }
-  .reel-set[aria-hidden="true"] { display: none; }
+  /* the strip stays still; it can still be dragged by hand */
 }
 
 /* phones: shorter strip, names always visible (no hover on touch screens) */
 @media (max-width: 768px) {
   .reel { height: 60svh; }
   .reel-item { height: calc(60svh - 2 * var(--pad)); }
-  .reel-track { animation-duration: 45s; }
 }
 @media (hover: none) {
   .reel-title { opacity: 1; }
@@ -409,4 +403,43 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 .layout > main { grid-area: main; }
 @media (max-width: 768px) {
   .layout { grid-template-areas: "reel" "nav" "main"; grid-template-rows: auto; }
+}
+
+/* ============ IN-PAGE LINKS ============ */
+[data-go], [data-href] { cursor: pointer; }
+
+/* ============ NEGATIVE ON HOVER (every photo on the page) ============ */
+@media (hover: hover) {
+  main .shot img, main .shot video { transition: filter 0.15s; }
+  main .shot img:hover, main .shot video:hover { filter: invert(1); }
+}
+
+/* ============ FOOTER TICKER ============
+   Black strip scrolling contacts; turns white on hover and stops so the links are easy to click. */
+.site-footer {
+  background: #000;
+  color: #fff;
+  border-top: var(--line);
+  overflow: hidden;
+  transition: background 0.1s, color 0.1s;
+}
+.site-footer:hover { background: #fff; color: #000; }
+.ticker { display: flex; align-items: center; min-height: var(--bar-h); }
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 40s linear infinite;
+}
+.site-footer:hover .ticker-track,
+.site-footer:focus-within .ticker-track { animation-play-state: paused; }
+.ticker-half { display: flex; text-transform: uppercase; white-space: nowrap; }
+.ticker-half > * { padding: 0 var(--pad); }
+.ticker a { color: inherit; text-decoration: none; }
+.ticker a:hover, .ticker a:focus-visible { text-decoration: underline; outline: none; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
 }

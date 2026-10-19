@@ -1,8 +1,8 @@
 // Highlights the index entry of the section currently in view.
 (function () {
   var links = {};
-  document.querySelectorAll('.index a').forEach(function (a) {
-    links[a.getAttribute('href').slice(1)] = a;
+  document.querySelectorAll('.index a[data-go]').forEach(function (a) {
+    links[a.dataset.go] = a;
   });
   var current = null;
   var observer = new IntersectionObserver(function (entries) {
@@ -162,4 +162,114 @@
   window.addEventListener('resize', function () {
     if (!box.hidden) track.scrollLeft = current() * track.clientWidth;
   });
+})();
+
+
+// In-page links without href (so the browser shows no link preview at the bottom):
+// [data-go] scrolls to a section, [data-href] opens mail or phone.
+(function () {
+  function activate(el) {
+    if (el.dataset.href) { window.location.href = el.dataset.href; return; }
+    var id = el.dataset.go;
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', location.pathname);
+      return;
+    }
+    var target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '#' + id);
+  }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-go], [data-href]');
+    if (!el || e.defaultPrevented) return;
+    e.preventDefault();
+    activate(el);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    var el = e.target.closest && e.target.closest('[data-go], [data-href]');
+    if (el) { e.preventDefault(); activate(el); }
+  });
+})();
+
+// Home reel: scrolls by itself; hover stops it; drag with the mouse (or finger)
+// or swipe sideways on a trackpad to move it faster, with a little inertia.
+(function () {
+  var reel = document.querySelector('.reel');
+  var track = reel && reel.querySelector('.reel-track');
+  if (!track) return;
+  var set = track.querySelector('.reel-set');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var speed = reduce ? 0 : 70;          // px per second, automatic
+  var x = 0, v = 0, hover = false;
+  var drag = null, moved = false, last = performance.now();
+
+  function width() { return set.offsetWidth; }
+  function wrap() {
+    var w = width();
+    if (!w) return;
+    while (x <= -w) x += w;
+    while (x > 0) x -= w;
+  }
+  function frame(now) {
+    var dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    if (!drag) {
+      if (!hover && !document.hidden) x -= speed * dt;
+      x += v * dt;
+      v *= Math.pow(0.04, dt);           // inertia fades out in about a second
+      if (Math.abs(v) < 2) v = 0;
+    }
+    wrap();
+    track.style.transform = 'translate3d(' + x + 'px,0,0)';
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  reel.addEventListener('mouseenter', function () { hover = true; });
+  reel.addEventListener('mouseleave', function () { hover = false; });
+
+  // trackpad: horizontal swipe moves the strip, vertical scroll still scrolls the page
+  reel.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      e.preventDefault();
+      x -= e.deltaX;
+    }
+  }, { passive: false });
+
+  reel.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0) return;
+    drag = { startX: e.clientX, lastX: e.clientX, lastT: performance.now(), vel: 0, id: e.pointerId };
+    moved = false;
+    v = 0;
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.lastX;
+    if (!moved && Math.abs(e.clientX - drag.startX) > 6) {
+      moved = true;
+      reel.classList.add('dragging');
+      try { reel.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    if (!moved) return;
+    var now = performance.now();
+    x += dx;
+    drag.vel = dx / Math.max(1, now - drag.lastT) * 1000;
+    drag.lastX = e.clientX;
+    drag.lastT = now;
+  });
+  function end(e) {
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    if (moved) v = Math.max(-4000, Math.min(4000, drag.vel));
+    drag = null;
+    reel.classList.remove('dragging');
+  }
+  window.addEventListener('pointerup', end);
+  window.addEventListener('pointercancel', end);
+  // a drag is not a click: don't open the project after dragging
+  reel.addEventListener('click', function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
 })();
