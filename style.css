@@ -196,21 +196,14 @@ main { min-width: 0; }
   .photo-grid { grid-template-columns: 1fr; }
 }
 
-/* ============ KEYWORDS ON HOVER ============
-   Hovering a long text hides everything except the keywords,
-   which stay exactly where they are. On touch screens a tap toggles it. */
-.hl .kw { transition: color 0.15s; }
-.hl { transition: color 0.15s; }
-.hl.show-kw,
-.hl.show-kw a { color: transparent; text-decoration-color: transparent; }
-.hl.show-kw .kw,
-.hl.show-kw .kw a { color: #000; text-decoration-color: currentColor; }
-@media (hover: hover) {
-  .hl:hover,
-  .hl:hover a { color: transparent; text-decoration-color: transparent; }
-  .hl:hover .kw,
-  .hl:hover .kw a { color: #000; text-decoration-color: currentColor; }
-}
+/* ============ KEYWORDS MODE ============
+   The "Keywords" button in the header hides every long text except its keywords,
+   which stay exactly where they are. Pressed again, the full text comes back. */
+.hl, .hl .kw, .hl a { transition: color 0.15s, text-decoration-color 0.15s; }
+body.kw-on .hl,
+body.kw-on .hl a { color: transparent; text-decoration-color: transparent; }
+body.kw-on .hl .kw,
+body.kw-on .hl .kw a { color: #000; text-decoration-color: currentColor; }
 
 /* ============ GRID GALLERIES (desktop) ============
    Two columns, every image at its own proportions.
@@ -408,12 +401,6 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 /* ============ IN-PAGE LINKS ============ */
 [data-go], [data-href] { cursor: pointer; }
 
-/* ============ NEGATIVE ON HOVER (every photo on the page) ============ */
-@media (hover: hover) {
-  main .shot img, main .shot video { transition: filter 0.15s; }
-  main .shot img:hover, main .shot video:hover { filter: invert(1); }
-}
-
 /* ============ FOOTER TICKER ============
    Black strip scrolling contacts; turns white on hover and stops so the links are easy to click. */
 .site-footer {
@@ -442,4 +429,67 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none; }
+}
+
+/* ============ HEADER: KEYWORDS BUTTON ============ */
+.to-top { color: #000; text-decoration: none; cursor: pointer; }
+.kw-toggle {
+  font: inherit;
+  text-transform: uppercase;
+  color: #000;
+  background: #fff;
+  border: 0;
+  padding: 2px var(--pad);
+  margin-right: calc(-1 * var(--pad) + 4px);
+  cursor: pointer;
+}
+.kw-toggle:hover { text-decoration: underline; }
+.kw-toggle[aria-pressed="true"] { background: #000; color: #fff; text-decoration: none; }
+.kw-toggle:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
+
+/* ============ NEXT PROJECT ============ */
+.next-row {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  border-top: var(--line);
+  margin-top: -1px;
+  transition: background 0.1s, color 0.1s;
+}
+.next-row:hover, .next-row:focus-visible { background: #000; color: #fff; outline: none; }
+.next-row .label { text-transform: uppercase; }
+
+/* ============ CONTACTS: COPY E-MAIL ============ */
+.copy-mail {
+  font: inherit;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 0 6px;
+  margin-left: 8px;
+  vertical-align: 1px;
+  cursor: pointer;
+}
+.copy-mail:hover, .copy-mail.done { background: #000; color: #fff; }
+
+/* ============ PHONES: INDEX BUTTON ============
+   Appears once the index has scrolled away; tap to jump back to it. */
+.to-index { display: none; }
+@media (max-width: 768px) {
+  .to-index:not([hidden]) {
+    display: block;
+    position: fixed;
+    right: var(--pad);
+    bottom: var(--pad);
+    z-index: 30;
+    font: inherit;
+    text-transform: uppercase;
+    color: #fff;
+    background: #000;
+    border: 1px solid #fff;
+    padding: 8px 14px;
+  }
 }

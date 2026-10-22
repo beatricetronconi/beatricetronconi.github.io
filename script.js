@@ -26,14 +26,45 @@
   document.querySelectorAll('main section[id]').forEach(function (s) { observer.observe(s); });
 })();
 
-// Touch screens: tap a long text to show only its keywords, tap again to show it all.
+// Keywords button: show only the keywords of every long text, press again for the full text.
 (function () {
-  if (window.matchMedia('(hover: hover)').matches) return;
-  document.querySelectorAll('.hl').forEach(function (p) {
-    p.addEventListener('click', function (e) {
-      if (e.target.closest('a')) return;
-      p.classList.toggle('show-kw');
+  var btn = document.querySelector('.kw-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var on = document.body.classList.toggle('kw-on');
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+})();
+
+// Copy the e-mail address with one click.
+(function () {
+  document.querySelectorAll('.copy-mail').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.dataset.copy;
+      function done() {
+        b.textContent = 'Copied'; b.classList.add('done');
+        setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('done'); }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { window.prompt('E-mail', text); });
+      } else {
+        window.prompt('E-mail', text);
+      }
     });
+  });
+})();
+
+// Phones: an "Index" button appears once the index has scrolled out of view.
+(function () {
+  var btn = document.querySelector('.to-index');
+  var nav = document.querySelector('.index');
+  if (!btn || !nav) return;
+  new IntersectionObserver(function (entries) {
+    var e = entries[0];
+    btn.hidden = e.isIntersecting || e.boundingClientRect.top > 0;
+  }).observe(nav);
+  btn.addEventListener('click', function () {
+    nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 })();
 
