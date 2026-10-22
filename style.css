@@ -401,51 +401,41 @@ html.lb-open, html.lb-open body { overflow: hidden; }
 /* ============ IN-PAGE LINKS ============ */
 [data-go], [data-href] { cursor: pointer; }
 
-/* ============ FOOTER TICKER ============
-   Black strip scrolling contacts; turns white on hover and stops so the links are easy to click. */
+/* ============ FOOTER ============
+   Black, still; turns white on hover. */
 .site-footer {
   background: #000;
   color: #fff;
   border-top: var(--line);
-  overflow: hidden;
   transition: background 0.1s, color 0.1s;
 }
 .site-footer:hover { background: #fff; color: #000; }
-.ticker { display: flex; align-items: center; min-height: var(--bar-h); }
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 40s linear infinite;
-}
-.site-footer:hover .ticker-track,
-.site-footer:focus-within .ticker-track { animation-play-state: paused; }
-.ticker-half { display: flex; text-transform: uppercase; white-space: nowrap; }
-.ticker-half > * { padding: 0 var(--pad); }
-.ticker a { color: inherit; text-decoration: none; }
-.ticker a:hover, .ticker a:focus-visible { text-decoration: underline; outline: none; }
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
-}
+.foot a { color: inherit; text-decoration: none; }
+.foot a:hover, .foot a:focus-visible { text-decoration: underline; outline: none; }
+.foot-links { display: flex; flex-wrap: wrap; column-gap: 40px; }
 
-/* ============ HEADER: KEYWORDS BUTTON ============ */
+/* ============ KEYWORDS BUTTON ============
+   Bottom left, just above the footer. */
 .to-top { color: #000; text-decoration: none; cursor: pointer; }
 .kw-toggle {
+  position: fixed;
+  left: var(--pad);
+  bottom: calc(var(--bar-h) + var(--pad));
+  z-index: 30;
   font: inherit;
   text-transform: uppercase;
   color: #000;
   background: #fff;
-  border: 0;
-  padding: 2px var(--pad);
-  margin-right: calc(-1 * var(--pad) + 4px);
+  border: 1px solid #000;
+  padding: 6px 12px;
   cursor: pointer;
 }
-.kw-toggle:hover { text-decoration: underline; }
-.kw-toggle[aria-pressed="true"] { background: #000; color: #fff; text-decoration: none; }
+.kw-toggle:hover { background: #000; color: #fff; }
+.kw-toggle[aria-pressed="true"] { background: #000; color: #fff; }
 .kw-toggle:focus-visible { outline: 1px solid #000; outline-offset: 2px; }
+@media (max-width: 768px) {
+  .kw-toggle { bottom: var(--pad); padding: 8px 14px; }
+}
 
 /* ============ NEXT PROJECT ============ */
 .next-row {
@@ -493,3 +483,9 @@ html.lb-open, html.lb-open body { overflow: hidden; }
     padding: 8px 14px;
   }
 }
+
+/* ============ MAGNETIC SCROLL ============
+   Light snap: when you stop scrolling close to the start of a project,
+   the page settles on its title. Inside a project you scroll freely. */
+html { scroll-snap-type: y proximity; }
+.reel, main > section { scroll-snap-align: start; }
